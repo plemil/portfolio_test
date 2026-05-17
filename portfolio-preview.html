@@ -1,0 +1,2152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paul Emil Johnson — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#FAFAF7;--bg2:#F5F1E8;--bg3:#F0EDE6;--tx:#1A1A18;--tx2:#4A4A45;--tx3:#6B6B65;--tx4:#9B9B93;--br:rgba(0,0,0,0.10);--br2:rgba(0,0,0,0.07);--oc:#C4B89A;--ocbg:#F0E8D8;--octx:#6B5E3E;--gnbg:#DAEFD6;--gntx:#2A4A32;--rdbg:#fde8e8;--rdtx:#7a2a2a}
+html,body{height:100%;font-family:'Inter',sans-serif;background:var(--bg);color:var(--tx);-webkit-font-smoothing:antialiased}
+.site{min-height:100vh;display:flex;flex-direction:column;max-width:1080px;margin:0 auto;background:var(--bg);border-left:0.5px solid var(--br);border-right:0.5px solid var(--br)}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;border-bottom:0.5px solid var(--br);background:var(--bg);position:sticky;top:0;z-index:100}
+.logo{font-family:'JetBrains Mono',monospace;font-size:13px;cursor:pointer;color:var(--tx)}
+.navl{display:flex;gap:28px;list-style:none}
+.navl a{font-size:13px;color:var(--tx3);text-decoration:none;cursor:pointer;transition:color .15s}
+.navl a.act,.navl a:hover{color:var(--tx)}
+.page{display:none}.page.on{display:block}
+footer{padding:22px 40px;border-top:0.5px solid var(--br);display:flex;justify-content:space-between;align-items:center}
+.ftl{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--tx4);letter-spacing:.06em}
+.ftr{display:flex;gap:18px}
+.ftr a{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--tx4);text-decoration:none}.ftr a:hover{color:var(--tx)}
+.pill{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:2px;display:inline-block}
+.pill-o{background:var(--ocbg);color:var(--octx)}.pill-g{background:var(--gnbg);color:var(--gntx)}.pill-r{background:var(--rdbg);color:var(--rdtx)}
+.sl{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--tx4);display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.sl::after{content:'';flex:1;height:0.5px;background:var(--br)}
+.div{height:0.5px;background:var(--br);margin:0 40px}
+@keyframes pd{0%,100%{opacity:1}50%{opacity:.3}}
+.dot{width:7px;height:7px;border-radius:50%;background:#7daa65;animation:pd 2.5s ease infinite;flex-shrink:0}
+
+/* NAV & HOME — kept minimal, same as before */
+.h-hero{padding:64px 40px 44px;max-width:720px}
+.h-eye{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--tx4);margin-bottom:18px}
+.h-name{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,3.6rem);font-weight:400;line-height:1.05;letter-spacing:-.02em;color:var(--tx)}
+.h-name em{font-style:italic;color:var(--octx)}
+.h-bio{font-size:14px;color:var(--tx2);line-height:1.75;max-width:500px;margin-top:20px}
+.h-cta{display:flex;align-items:center;gap:22px;margin-top:28px}
+.btn-p{font-size:12px;font-weight:500;color:var(--bg);background:var(--tx);padding:9px 18px;border-radius:3px;border:none;cursor:pointer}
+.btn-g{font-size:12px;color:var(--tx3);background:none;border:none;cursor:pointer}
+.btn-p:hover,.btn-g:hover{opacity:.8}
+.h-av{display:flex;align-items:center;gap:8px;margin-top:24px}
+.h-avt{font-family:'JetBrains Mono',monospace;font-size:10px;color:#5f7a50}
+.h-q{padding:0 40px 48px;max-width:580px}
+.h-pq{font-family:'Playfair Display',serif;font-size:1.15rem;font-style:italic;color:var(--tx2);line-height:1.55;border-left:1.5px solid var(--oc);padding-left:18px}
+.h-work{padding:48px 40px}
+.wl{list-style:none}
+.wi{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;padding:15px 0;border-bottom:0.5px solid var(--br2);cursor:pointer;gap:14px;color:inherit}
+.wi:first-child{border-top:0.5px solid var(--br2)}
+.wi:hover .wit{color:var(--tx)}.wi:hover .wia{opacity:1;transform:translateX(3px)}
+.wit{font-size:14px;font-weight:500;color:#2A2A26;margin-bottom:3px;transition:color .12s}
+.wid{font-size:12px;color:var(--tx3)}
+.wir{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.wiy{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--tx4)}
+.wia{font-size:13px;opacity:0;transition:all .15s;color:var(--tx3)}
+.h-2col{display:grid;grid-template-columns:1fr 1fr;border-top:0.5px solid var(--br)}
+.wsec{padding:44px 40px;border-right:0.5px solid var(--br)}.nsec{padding:44px 40px}
+.pr{padding:12px 0;border-bottom:0.5px solid var(--br2);cursor:pointer;color:inherit;display:block}
+.pr:first-child{border-top:0.5px solid var(--br2)}
+.pr:hover .prt{color:var(--tx)}
+.prt{font-size:13px;color:#2A2A26;line-height:1.4;margin-bottom:3px;transition:color .12s}
+.prm{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--tx4)}
+.np{font-size:13px;line-height:1.75;color:var(--tx2);margin-bottom:12px}.np strong{font-weight:500;color:var(--tx)}
+.aw{margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--tx4);cursor:pointer}
+.aw:hover{color:var(--tx)}
+
+/* WORK INDEX */
+.wph{padding:48px 40px 36px}
+.wph1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.5rem);font-weight:400;line-height:1.1;letter-spacing:-.02em;color:var(--tx);margin-bottom:10px}
+.wph1 em{font-style:italic;color:var(--octx)}
+.wpsub{font-size:13px;color:var(--tx3);line-height:1.7;max-width:460px;margin-bottom:36px}
+.wpi{display:grid;grid-template-columns:minmax(0,1fr) 160px;gap:20px;align-items:start;padding:24px 40px;border-top:0.5px solid var(--br2);cursor:pointer;color:inherit}
+.wpi:last-child{border-bottom:0.5px solid var(--br2)}
+.wpi:hover .wpit{color:var(--tx)}
+.wpit{font-size:16px;font-weight:500;color:#2A2A26;margin-bottom:6px;transition:color .12s}
+.wpid{font-size:12px;color:var(--tx3);line-height:1.6}
+.wpir{text-align:right}
+.wpiy{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--tx4);margin-bottom:3px}
+.wpirl{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--tx4);margin-bottom:8px}
+.wpit2{display:flex;gap:4px;justify-content:flex-end;flex-wrap:wrap}
+
+/* ── DEEP CASE STUDY LAYOUT ─────────────────── */
+.cs-wrap{display:grid;grid-template-columns:170px minmax(0,1fr)}
+.cs-sidebar{padding:32px 0 32px 40px;border-right:0.5px solid var(--br2);position:sticky;top:57px;height:calc(100vh - 57px);overflow-y:auto}
+.cs-toc-label{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--tx4);margin-bottom:14px}
+.cs-toc-item{font-size:11px;color:var(--tx4);padding:7px 0;border-bottom:0.5px solid var(--br2);cursor:pointer;line-height:1.35;transition:color .12s;padding-right:12px}
+.cs-toc-item:hover,.cs-toc-item.a{color:var(--tx)}.cs-toc-item.a{font-weight:500;color:var(--octx)}
+.cs-toc-num{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--oc);margin-right:5px}
+.cs-body{padding:0 40px 60px}
+
+/* Case study header */
+.cs-header{padding:36px 0 28px;border-bottom:0.5px solid var(--br)}
+.cs-back{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--tx4);cursor:pointer;display:inline-flex;align-items:center;gap:4px;margin-bottom:20px}
+.cs-back:hover{color:var(--tx)}
+.cs-h1{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,3.5vw,2.5rem);font-weight:400;line-height:1.08;letter-spacing:-.02em;color:var(--tx);margin-bottom:10px}
+.cs-h1 em{font-style:italic;color:var(--octx)}
+.cs-lede{font-size:14px;color:var(--tx2);line-height:1.75;max-width:540px;margin-bottom:22px}
+.cs-meta{display:flex;gap:28px;flex-wrap:wrap}
+.cs-meta-item{}
+.cs-meta-l{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--tx4);margin-bottom:3px}
+.cs-meta-v{font-size:12px;font-weight:500;color:#2A2A26}
+
+/* Section headings */
+.cs-section{margin-top:48px;padding-top:24px;border-top:0.5px solid var(--br2)}
+.cs-section:first-child{margin-top:28px;border-top:none}
+.cs-section-label{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--oc);margin-bottom:8px}
+.cs-h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:400;color:var(--tx);margin-bottom:14px;line-height:1.25}
+.cs-h2 em{font-style:italic}
+.cs-h3{font-family:'Playfair Display',serif;font-size:17px;font-weight:400;color:var(--tx);margin:24px 0 10px;line-height:1.3}
+.cs-p{font-size:13.5px;line-height:1.85;color:#3A3A36;margin-bottom:13px}
+.cs-p strong{font-weight:500;color:var(--tx)}
+.cs-p em{font-style:italic}
+
+/* Pull quote */
+.cs-pq{margin:22px 0;padding:16px 20px;border-left:2px solid var(--oc);background:var(--bg2);border-radius:0 3px 3px 0}
+.cs-pq-t{font-family:'Playfair Display',serif;font-size:15px;font-style:italic;color:#2A2A26;line-height:1.6}
+
+/* Challenge cards */
+.cs-challenges{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0}
+.cs-ch{border:0.5px solid var(--br);border-radius:3px;padding:14px}
+.cs-ch-n{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--oc);margin-bottom:5px}
+.cs-ch-t{font-size:12px;font-weight:500;color:#1A1A18;margin-bottom:5px}
+.cs-ch-d{font-size:11px;color:var(--tx3);line-height:1.55}
+
+/* Screen mockup panels */
+.cs-screen{background:var(--bg3);border-radius:4px;padding:16px;margin:20px 0;position:relative}
+.cs-screen-label{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--tx4);margin-bottom:12px;display:flex;align-items:center;justify-content:space-between}
+.cs-screen-badge{background:var(--bg2);border:0.5px solid var(--br);border-radius:2px;padding:2px 7px;font-size:8px;font-family:'JetBrains Mono',monospace;color:var(--tx4)}
+/* Wireframe elements */
+.wf{background:#fff;border:0.5px solid rgba(0,0,0,.1);border-radius:4px;overflow:hidden}
+.wf-bar{height:32px;background:var(--bg2);border-bottom:0.5px solid var(--br);display:flex;align-items:center;padding:0 12px;gap:8px}
+.wf-bar-dot{width:6px;height:6px;border-radius:50%}
+.wf-nav{height:40px;border-bottom:0.5px solid var(--br);display:flex;align-items:center;padding:0 16px;gap:20px;background:#fff}
+.wf-nav-item{font-size:10px;color:var(--tx3)}
+.wf-nav-item.act{font-weight:500;color:var(--tx);border-bottom:1.5px solid var(--oc);padding-bottom:2px}
+.wf-content{padding:16px}
+.wf-row{height:3px;background:var(--bg3);border-radius:2px;margin-bottom:6px}
+.wf-row.med{width:65%}.wf-row.sm{width:40%}.wf-row.xs{width:25%}
+.wf-block{background:var(--bg2);border-radius:3px;padding:10px 12px;margin-bottom:8px}
+.wf-block-h{height:8px;background:var(--bg3);border-radius:2px;width:55%;margin-bottom:6px}
+.wf-block-b{height:5px;background:var(--bg3);border-radius:2px;margin-bottom:4px}
+.wf-block-b.sm{width:75%}
+.wf-input{height:28px;border:0.5px solid var(--br);border-radius:3px;background:#fff;display:flex;align-items:center;padding:0 8px;margin-bottom:6px}
+.wf-input-label{font-size:9px;color:var(--tx4);width:80px;flex-shrink:0}
+.wf-input-val{flex:1;height:14px;background:var(--bg3);border-radius:2px}
+.wf-badge{display:inline-block;padding:2px 6px;border-radius:2px;font-size:8px;font-family:'JetBrains Mono',monospace}
+.wf-badge.green{background:var(--gnbg);color:var(--gntx)}
+.wf-badge.ochre{background:var(--ocbg);color:var(--octx)}
+.wf-btn{height:24px;border-radius:3px;display:inline-flex;align-items:center;padding:0 10px;font-size:9px;font-weight:500}
+.wf-btn.primary{background:var(--tx);color:var(--bg)}
+.wf-btn.sec{background:transparent;border:0.5px solid var(--br);color:var(--tx3)}
+.wf-two-col{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.wf-three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
+.wf-sidebar-layout{display:grid;grid-template-columns:180px 1fr;gap:0;height:200px;overflow:hidden}
+.wf-sidebar{background:var(--bg2);border-right:0.5px solid var(--br);padding:10px}
+.wf-sidebar-item{height:26px;display:flex;align-items:center;padding:0 8px;border-radius:2px;font-size:9px;color:var(--tx3);margin-bottom:2px;cursor:pointer}
+.wf-sidebar-item.act{background:#fff;color:var(--tx);font-weight:500;border:0.5px solid var(--br)}
+.wf-main{padding:10px;overflow:auto}
+.wf-timeline{display:flex;gap:0;margin:8px 0;height:28px;border-radius:3px;overflow:hidden}
+.wf-tl-seg{flex:1;display:flex;align-items:center;justify-content:center;font-size:8px;font-family:'JetBrains Mono',monospace;color:var(--octx);background:var(--ocbg);border-right:1px solid var(--bg3)}
+.wf-tl-seg.inv{background:var(--gnbg);color:var(--gntx)}
+.wf-tl-seg.fut{background:var(--bg3);color:var(--tx4)}
+
+/* Annotation */
+.cs-annotation{position:relative;margin:20px 0}
+.cs-ann-note{background:#fff;border:0.5px solid var(--br);border-radius:3px;padding:8px 10px;font-size:11px;color:var(--tx2);line-height:1.5;position:relative}
+.cs-ann-note::before{content:'';position:absolute;left:-12px;top:50%;transform:translateY(-50%);width:8px;height:8px;border-radius:50%;background:var(--oc);border:1.5px solid #fff;box-shadow:0 0 0 1px var(--oc)}
+.ann-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+.ann-item{display:flex;gap:10px;align-items:flex-start}
+.ann-num{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--oc);flex-shrink:0;padding-top:1px}
+.ann-text{font-size:12px;color:var(--tx2);line-height:1.55}
+.ann-text strong{font-weight:500;color:var(--tx)}
+
+/* Decision compare */
+.cs-compare{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0}
+.cs-comp-before,.cs-comp-after{border-radius:3px;padding:14px}
+.cs-comp-before{background:var(--rdbg);border:0.5px solid rgba(122,42,42,.15)}
+.cs-comp-after{background:var(--gnbg);border:0.5px solid rgba(42,74,50,.15)}
+.cs-comp-label{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.cs-comp-before .cs-comp-label{color:var(--rdtx)}.cs-comp-after .cs-comp-label{color:var(--gntx)}
+.cs-comp-p{font-size:11px;line-height:1.6;color:var(--tx2)}
+
+/* Stats row */
+.cs-stats{display:flex;gap:8px;margin:20px 0}
+.cs-stat{background:var(--bg2);border-radius:3px;padding:14px 16px;flex:1;text-align:center}
+.cs-stat-n{font-family:'Playfair Display',serif;font-size:26px;font-weight:400;color:var(--tx);margin-bottom:3px}
+.cs-stat-l{font-size:10px;color:var(--tx3);line-height:1.4}
+
+/* Founder quote */
+.cs-fq{background:var(--bg3);border-radius:3px;padding:20px;margin:16px 0}
+.cs-fq-t{font-family:'Playfair Display',serif;font-size:14px;font-style:italic;color:#2A2A26;line-height:1.7;margin-bottom:10px}
+.cs-fq-a{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--tx4);letter-spacing:.04em}
+
+/* Process flow */
+.cs-flow{display:flex;align-items:center;gap:0;margin:16px 0;overflow-x:auto}
+.cs-flow-step{background:var(--bg2);border:0.5px solid var(--br);border-radius:3px;padding:10px 12px;flex-shrink:0;min-width:100px}
+.cs-flow-step-n{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--oc);margin-bottom:3px}
+.cs-flow-step-t{font-size:11px;font-weight:500;color:#2A2A26}
+.cs-flow-arrow{font-size:14px;color:var(--tx4);padding:0 8px;flex-shrink:0}
+
+/* Nav between case studies */
+.cs-nav{display:flex;justify-content:space-between;align-items:center;padding:24px 40px;border-top:0.5px solid var(--br);margin-top:40px}
+.cs-nav-b{font-size:12px;color:var(--tx3);cursor:pointer}.cs-nav-b:hover{color:var(--tx)}
+
+/* Writing minimal */
+.wr-wrap{padding:48px 40px}
+.wr-h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.3rem);font-weight:400;color:var(--tx);margin-bottom:10px}
+.wr-h1 em{font-style:italic;color:var(--octx)}
+.wr-sub{font-size:13px;color:var(--tx3);line-height:1.7;max-width:460px;margin-bottom:28px}
+.wr-row{display:grid;grid-template-columns:minmax(0,1fr) 200px;align-items:baseline;padding:16px 0;border-bottom:0.5px solid var(--br2);cursor:pointer;gap:12px}
+.wr-row:first-of-type{border-top:0.5px solid var(--br2)}
+.wr-row:hover .wr-t{color:var(--tx)}
+.wr-t{font-family:'Playfair Display',serif;font-size:15px;font-weight:400;color:#2A2A26;line-height:1.3;margin-bottom:3px;transition:color .12s}
+.wr-d{font-size:11px;color:var(--tx4)}
+.wr-r{display:flex;align-items:center;justify-content:flex-end;gap:8px}
+.wr-date{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--tx4)}
+.wr-min{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--oc)}
+
+/* About minimal */
+.ab-wrap{display:grid;grid-template-columns:220px minmax(0,1fr)}
+.ab-left{padding:44px 24px 44px 40px;border-right:0.5px solid var(--br2)}
+.ab-photo{width:100%;aspect-ratio:4/5;background:#E8E3DA;border-radius:3px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;color:var(--tx4);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+.ab-name{font-family:'Playfair Display',serif;font-size:20px;font-weight:400;color:var(--tx);margin-bottom:3px}
+.ab-role{font-size:12px;color:var(--tx3);line-height:1.6;margin-bottom:20px}
+.ab-cl{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--tx4);margin-bottom:10px}
+.ab-ci{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--tx2);margin-bottom:8px}
+.ab-right{padding:44px 40px}
+.ab-lede{font-family:'Playfair Display',serif;font-size:19px;font-weight:400;font-style:italic;color:#2A2A26;line-height:1.5;margin-bottom:24px;max-width:480px}
+.ab-p{font-size:13px;line-height:1.8;color:var(--tx2);margin-bottom:12px;max-width:500px}
+.ab-p strong{font-weight:500;color:var(--tx)}
+.ab-tl{display:grid;grid-template-columns:88px minmax(0,1fr);gap:12px;padding:12px 0;border-bottom:0.5px solid var(--br2)}
+.ab-tl-y{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--tx4);padding-top:2px}
+.ab-tl-r{font-size:12px;font-weight:500;color:#2A2A26;margin-bottom:2px}
+.ab-tl-c{font-size:11px;color:var(--tx3)}
+.ab-dot{display:inline-block;width:4px;height:4px;border-radius:50%;background:var(--oc);margin-right:4px;vertical-align:middle}
+.ab-pr-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:500px;margin-bottom:24px}
+.ab-pr{padding:12px;border:0.5px solid var(--br);border-radius:3px}
+.ab-pr-n{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--oc);margin-bottom:4px}
+.ab-pr-t{font-size:12px;color:#2A2A26;line-height:1.5}
+.ab-interests{display:flex;flex-wrap:wrap;gap:6px}
+
+/* Now */
+.now-wrap{padding:48px 40px;max-width:580px}
+.now-b{margin-bottom:26px}
+.now-bl{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--tx4);margin-bottom:7px}
+.now-bt{font-size:14px;line-height:1.82;color:var(--tx2)}.now-bt strong{font-weight:500;color:var(--tx)}
+
+/* ══ WRITING PAGES ══ */
+
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#FAFAF7;--bg2:#F5F1E8;--bg3:#F0EDE6;--bg4:#EAE5DC;
+  --tx:#1A1A18;--tx2:#3A3A35;--tx3:#6B6B65;--tx4:#9B9B93;
+  --br:rgba(0,0,0,.09);--br2:rgba(0,0,0,.06);
+  --oc:#C4B89A;--ocbg:#F0E8D8;--octx:#6B5E3E;
+  --gnbg:#DAEFD6;--gntx:#2A4A32;
+  --accent:#B5926A;
+}
+html,body{height:100%;font-family:'Lora',serif;background:var(--bg);color:var(--tx);-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+
+/* ── LAYOUT ── */
+.site{max-width:1080px;margin:0 auto;background:var(--bg);border-left:0.5px solid var(--br);border-right:0.5px solid var(--br);min-height:100vh;display:flex;flex-direction:column}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;border-bottom:0.5px solid var(--br);background:var(--bg);position:sticky;top:0;z-index:100}
+.logo{font-family:'JetBrains Mono',monospace;font-size:13px;cursor:pointer;color:var(--tx);text-decoration:none}
+.navl{display:flex;gap:28px;list-style:none}
+.navl a{font-size:13px;font-family:'Inter',sans-serif;color:var(--tx3);text-decoration:none;cursor:pointer;transition:color .15s}
+.navl a.act,.navl a:hover{color:var(--tx)}
+footer{padding:22px 40px;border-top:0.5px solid var(--br);display:flex;justify-content:space-between;align-items:center;margin-top:auto}
+.ftl{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--tx4);letter-spacing:.06em}
+.ftr{display:flex;gap:18px}.ftr a{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--tx4);text-decoration:none}.ftr a:hover{color:var(--tx)}
+
+/* ── PAGES ── */
+.page{display:none}.page.on{display:flex;flex-direction:column;flex:1}
+
+/* ── WRITING INDEX ── */
+.wi-hero{padding:56px 40px 40px}
+.wi-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--tx4);margin-bottom:16px}
+.wi-title{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4.5vw,3.2rem);font-weight:400;line-height:1.06;letter-spacing:-.02em;color:var(--tx);margin-bottom:14px}
+.wi-title em{font-style:italic;color:var(--accent)}
+.wi-sub{font-family:'Inter',sans-serif;font-size:14px;color:var(--tx3);line-height:1.75;max-width:480px}
+
+.wi-featured{margin:0 40px 0;background:var(--bg2);border:0.5px solid var(--br);border-radius:4px;padding:28px;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}
+.wi-featured:hover .wif-title{color:var(--accent)}
+.wif-badge{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--tx4);margin-bottom:10px}
+.wif-title{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:400;color:var(--tx);line-height:1.25;margin-bottom:8px;transition:color .15s}
+.wif-desc{font-family:'Inter',sans-serif;font-size:13px;color:var(--tx3);line-height:1.65;max-width:420px}
+.wif-meta{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--tx4);margin-top:12px;display:flex;gap:14px}
+.wif-cta{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--accent);flex-shrink:0;align-self:flex-end}
+
+.wi-list{padding:0 40px;margin-top:0}
+.wi-year{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--oc);padding:18px 0 8px;border-bottom:0.5px solid var(--br2)}
+.wi-row{display:grid;grid-template-columns:minmax(0,1fr) 220px;align-items:baseline;padding:18px 0;border-bottom:0.5px solid var(--br2);cursor:pointer;gap:16px}
+.wi-row:hover .wir-title{color:var(--accent)}
+.wir-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:400;color:var(--tx);line-height:1.3;margin-bottom:4px;transition:color .15s}
+.wir-desc{font-family:'Inter',sans-serif;font-size:12px;color:var(--tx4);line-height:1.5}
+.wir-right{display:flex;align-items:center;justify-content:flex-end;gap:10px}
+.wir-tag{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:2px}
+.tag-o{background:var(--ocbg);color:var(--octx)}
+.tag-g{background:var(--gnbg);color:var(--gntx)}
+.tag-b{background:#E8EEF9;color:#2A3A6B}
+.wir-date{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--tx4)}
+.wir-min{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--accent)}
+.wir-arrow{font-size:12px;color:var(--tx4);opacity:0;transition:all .15s}
+.wi-row:hover .wir-arrow{opacity:1;transform:translateX(3px)}
+
+/* ── ARTICLE ── */
+.art-wrap{display:grid;grid-template-columns:minmax(0,1fr) 200px}
+.art-main{padding:0 48px 60px;border-right:0.5px solid var(--br2)}
+.art-side{padding:32px 20px 32px 24px;position:sticky;top:57px;height:calc(100vh - 57px);overflow-y:auto}
+
+/* Progress bar */
+.prog-bar{height:2px;background:var(--accent);transition:width .1s;position:sticky;top:57px;z-index:99}
+
+/* Article header */
+.art-header{padding:40px 0 32px;border-bottom:0.5px solid var(--br)}
+.art-back{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--tx4);cursor:pointer;display:inline-flex;align-items:center;gap:4px;margin-bottom:20px;padding:40px 48px 0}
+.art-back:hover{color:var(--tx)}
+.art-tags{display:flex;gap:6px;margin-bottom:16px}
+.art-h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:400;line-height:1.1;letter-spacing:-.025em;color:var(--tx);margin-bottom:14px}
+.art-h1 em{font-style:italic;color:var(--accent)}
+.art-lede{font-family:'Lora',serif;font-size:15px;color:var(--tx2);line-height:1.8;max-width:560px;margin-bottom:20px;font-style:italic}
+.art-byline{display:flex;align-items:center;gap:12px}
+.art-av{width:28px;height:28px;border-radius:50%;background:#E8E3DA;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--tx4);flex-shrink:0}
+.art-by-text{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--tx4)}
+
+/* Article prose */
+.art-body{padding-top:32px}
+.art-p{font-family:'Lora',serif;font-size:15px;line-height:1.9;color:var(--tx2);margin-bottom:18px}
+.art-p strong{font-weight:500;color:var(--tx)}
+.art-p em{font-style:italic}
+.art-h2{font-family:'Playfair Display',serif;font-size:24px;font-weight:400;color:var(--tx);margin:40px 0 14px;line-height:1.25}
+.art-h2 em{font-style:italic;color:var(--accent)}
+.art-h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:400;color:var(--tx);margin:28px 0 10px;line-height:1.3}
+.art-pq{margin:28px 0;padding:20px 24px;border-left:2.5px solid var(--accent);background:var(--bg2);border-radius:0 4px 4px 0}
+.art-pq-t{font-family:'Playfair Display',serif;font-size:17px;font-style:italic;color:var(--tx);line-height:1.65}
+.art-pq-a{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--tx4);margin-top:8px;letter-spacing:.04em}
+
+/* Drop cap */
+.drop::first-letter{font-family:'Playfair Display',serif;font-size:3.8rem;float:left;line-height:.78;margin-right:.1em;margin-top:.06em;color:var(--tx);font-weight:400}
+
+/* Diagram boxes */
+.art-diagram{margin:28px 0;border-radius:4px;overflow:hidden;border:0.5px solid var(--br)}
+.art-diagram-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--tx4);padding:10px 16px;background:var(--bg2);border-bottom:0.5px solid var(--br);display:flex;justify-content:space-between;align-items:center}
+.art-diagram-badge{background:#fff;border:0.5px solid var(--br);border-radius:2px;padding:2px 8px;font-size:8px}
+.art-diagram-body{padding:20px;background:var(--bg3)}
+
+/* Framework grid */
+.fw-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fw-cell{background:#fff;border:0.5px solid var(--br);border-radius:3px;padding:14px}
+.fw-cell-n{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--accent);margin-bottom:5px;letter-spacing:.08em;text-transform:uppercase}
+.fw-cell-t{font-family:'Inter',sans-serif;font-size:12px;font-weight:500;color:#1A1A18;margin-bottom:4px}
+.fw-cell-d{font-family:'Inter',sans-serif;font-size:11px;color:var(--tx3);line-height:1.55}
+.fw-cell.highlight{background:var(--gnbg);border-color:rgba(42,74,50,.2)}
+.fw-cell.highlight .fw-cell-n{color:var(--gntx)}
+.fw-cell.warn{background:var(--ocbg);border-color:rgba(196,184,154,.4)}
+
+/* 2x2 matrix */
+.matrix{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--bg4);border-radius:3px;overflow:hidden}
+.matrix-cell{padding:16px;background:#fff}
+.matrix-cell.q1{background:#E8F0FE}
+.matrix-cell.q2{background:var(--gnbg)}
+.matrix-cell.q3{background:var(--ocbg)}
+.matrix-cell.q4{background:var(--rdbg,#fde8e8)}
+.matrix-label{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--tx4);margin-bottom:5px;letter-spacing:.08em;text-transform:uppercase}
+.matrix-title{font-family:'Inter',sans-serif;font-size:12px;font-weight:500;color:#1A1A18;margin-bottom:3px}
+.matrix-desc{font-family:'Inter',sans-serif;font-size:10px;color:var(--tx3);line-height:1.55}
+
+/* Timeline / process */
+.timeline{display:flex;flex-direction:column;gap:0}
+.tl-item{display:grid;grid-template-columns:80px minmax(0,1fr);gap:16px;padding:16px 0;border-bottom:0.5px solid var(--br2)}
+.tl-item:last-child{border-bottom:none}
+.tl-label{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--accent);padding-top:2px;letter-spacing:.04em}
+.tl-content{}
+.tl-title{font-family:'Inter',sans-serif;font-size:13px;font-weight:500;color:#1A1A18;margin-bottom:4px}
+.tl-desc{font-family:'Inter',sans-serif;font-size:12px;color:var(--tx3);line-height:1.6}
+
+/* Stats inline */
+.art-stats{display:flex;gap:8px;margin:24px 0}
+.art-stat{flex:1;background:var(--bg2);border-radius:3px;padding:14px 16px;text-align:center}
+.art-stat-n{font-family:'Playfair Display',serif;font-size:28px;font-weight:400;color:var(--tx);display:block;margin-bottom:3px}
+.art-stat-l{font-family:'Inter',sans-serif;font-size:10px;color:var(--tx3);line-height:1.4}
+
+/* Sidebar TOC */
+.side-label{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--tx4);margin-bottom:12px}
+.side-item{font-family:'Inter',sans-serif;font-size:11px;color:var(--tx4);padding:6px 0;border-bottom:0.5px solid var(--br2);cursor:pointer;line-height:1.35;transition:color .12s}
+.side-item:hover,.side-item.a{color:var(--tx)}.side-item.a{font-weight:500;color:var(--accent)}
+.side-num{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--oc);margin-right:4px}
+.side-related{margin-top:24px}
+.side-rel{font-family:'Inter',sans-serif;font-size:11px;color:var(--tx4);padding:8px 0;border-bottom:0.5px solid var(--br2);cursor:pointer;line-height:1.4}
+.side-rel:hover{color:var(--tx)}
+.side-rel-meta{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--tx4);margin-top:2px}
+
+/* Callout box */
+.callout{background:var(--bg2);border-left:2.5px solid var(--accent);border-radius:0 3px 3px 0;padding:14px 18px;margin:22px 0}
+.callout-label{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.callout-text{font-family:'Inter',sans-serif;font-size:13px;color:var(--tx2);line-height:1.65}
+
+/* Numbered list styled */
+.art-list{list-style:none;margin:16px 0}
+.art-list li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;padding:10px 0;border-bottom:0.5px solid var(--br2);font-family:'Inter',sans-serif;font-size:13px;color:var(--tx2);line-height:1.65}
+.art-list li:last-child{border-bottom:none}
+.art-list-n{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--accent);padding-top:2px}
+
+/* Flow arrows */
+.flow{display:flex;align-items:center;gap:0;background:#fff;border-radius:3px;border:0.5px solid var(--br);overflow:hidden;margin:16px 0}
+.flow-step{flex:1;padding:14px 12px;text-align:center;border-right:0.5px solid var(--br)}
+.flow-step:last-child{border-right:none}
+.flow-step-n{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--accent);margin-bottom:4px;letter-spacing:.06em;text-transform:uppercase}
+.flow-step-t{font-family:'Inter',sans-serif;font-size:11px;font-weight:500;color:#1A1A18;margin-bottom:2px}
+.flow-step-d{font-family:'Inter',sans-serif;font-size:9px;color:var(--tx3)}
+
+/* Article nav */
+.art-nav{display:flex;justify-content:space-between;align-items:center;padding:24px 48px;border-top:0.5px solid var(--br);margin-top:40px}
+.art-nav-b{font-family:'Inter',sans-serif;font-size:12px;color:var(--tx3);cursor:pointer;display:flex;align-items:center;gap:6px}
+.art-nav-b:hover{color:var(--tx)}
+.art-nav-b small{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--tx4);display:block;margin-bottom:2px}
+
+/* Responsive reading width */
+.art-main .art-body{max-width:640px}
+
+</style>
+</head>
+<body>
+<div class="site" id="site">
+
+<nav>
+  <span class="logo" onclick="nav('home')">paul—emil</span>
+  <ul class="navl">
+    <li><a onclick="nav('home')" id="nl-home" class="act">home</a></li>
+    <li><a onclick="nav('work')" id="nl-work">work</a></li>
+    <li><a onclick="nav('writing-index')" id="nl-writing">writing</a></li>
+    <li><a onclick="nav('about')" id="nl-about">about</a></li>
+    <li><a onclick="nav('now')" id="nl-now">now</a></li>
+  </ul>
+</nav>
+
+<!-- HOME -->
+<div class="page on" id="pg-home">
+  <div class="h-hero">
+    <p class="h-eye">Lead &amp; Founding Product Designer · 10+ years · B2B SaaS · AI</p>
+    <h1 class="h-name">Paul Emil<br><em>Johnson.</em></h1>
+    <p class="h-bio">I craft enterprise product experiences at the intersection of technology, design, and business. Currently founding designer at Zenskar. Previously Head of Product Design at CogniCor — where I led the design that closed a $1M ARR deal and got our studio acqui-hired.</p>
+    <div class="h-cta">
+      <button class="btn-p" onclick="nav('work')">View work</button>
+      <button class="btn-g">paul@paulemiljohnson.com ↗</button>
+    </div>
+    <div class="h-av"><span class="dot"></span><span class="h-avt">Open to senior &amp; founding-stage design conversations — 2025</span></div>
+  </div>
+  <div class="h-q"><p class="h-pq">"I work with entrepreneurs and technology teams to co-build products — from conception of an idea to market readiness."</p></div>
+  <div class="div"></div>
+  <div class="h-work">
+    <p class="sl">Selected work</p>
+    <ul class="wl">
+      <li><div class="wi" onclick="nav('cs1')">
+        <div><p class="wit">Zenskar — Billing &amp; Subscription Platform</p><p class="wid">Redesigning how usage-based SaaS companies manage pricing, contracts and invoices at scale.</p></div>
+        <div class="wir"><span class="pill pill-o">B2B SaaS</span><span class="pill pill-o">Fintech</span><span class="wiy">2024</span><span class="wia">→</span></div>
+      </div></li>
+      <li><div class="wi" onclick="nav('cs2')">
+        <div><p class="wit">CogniCor — Enterprise Digital Assistant Platform</p><p class="wid">0→1 no-code conversational AI platform. 3 months. $1M ARR. Studio acqui-hired.</p></div>
+        <div class="wir"><span class="pill pill-o">Conversational AI</span><span class="pill pill-o">Wealth Mgmt</span><span class="wiy">2021</span><span class="wia">→</span></div>
+      </div></li>
+      <li><div class="wi" onclick="nav('cs1')">
+        <div><p class="wit">Awesome Daddies Interactive — Studio</p><p class="wid">Founded and led a 15-person product design studio for 4 years.</p></div>
+        <div class="wir"><span class="pill pill-o">Founding</span><span class="pill pill-o">Studio</span><span class="wiy">2014–18</span><span class="wia">→</span></div>
+      </div></li>
+    </ul>
+  </div>
+  <div class="div"></div>
+  <div class="h-2col">
+    <div class="wsec">
+      <p class="sl">Writing</p>
+      <div class="pr" onclick="nav('writing-index')"><p class="prt">The first 90 days as a founding designer at a B2B AI startup</p><p class="prm">May 2025 · 8 min</p></div>
+      <div class="pr" onclick="nav('writing-index')"><p class="prt">Why your Series A doesn't need a design system yet</p><p class="prm">Mar 2025 · 6 min</p></div>
+      <div class="pr" onclick="nav('writing-index')"><p class="prt">The human-in-the-loop: when to let an AI agent run</p><p class="prm">Jan 2025 · 5 min</p></div>
+      <div class="aw" onclick="nav('writing-index')" style="cursor:pointer">All writing →</div>
+    </div>
+    <div class="nsec">
+      <p class="sl">Now</p>
+      <p class="np"><strong>Building</strong> at Zenskar — billing UX for AI-native quote-to-cash. Pushing Figma and Claude into every corner of my workflow.</p>
+      <p class="np"><strong>Podcasting</strong> — "Behind The Screens," real stories from B2B SaaS designers.</p>
+      <p class="np"><strong>Life</strong> — expecting our third child. Kerala, India.</p>
+      <span class="pill pill-o" style="margin-top:10px;display:inline-block">Updated May 2025</span>
+    </div>
+  </div>
+</div>
+
+<!-- WORK INDEX -->
+<div class="page" id="pg-work">
+  <div class="wph">
+    <p class="h-eye">Work</p>
+    <h1 class="wph1">Selected <em>case studies.</em></h1>
+    <p class="wpsub">10+ years. Three founding-stage engagements. Fintech, conversational AI, and B2B SaaS.</p>
+  </div>
+  <div class="wpi" onclick="nav('cs1')">
+    <div><p class="wpit">Zenskar — Billing &amp; Subscription Platform</p><p class="wpid">Redesigned end-to-end UX for usage-based billing SaaS. Conceptual model first, then four product modules. Two-mode edit panel that adapts to complexity automatically.</p></div>
+    <div class="wpir"><p class="wpiy">2024 – present</p><p class="wpirl">Lead / Founding Designer</p><div class="wpit2"><span class="pill pill-o">B2B SaaS</span><span class="pill pill-o">Fintech</span></div></div>
+  </div>
+  <div class="wpi" onclick="nav('cs2')">
+    <div><p class="wpit">CogniCor — Enterprise Digital Assistant Platform</p><p class="wpid">Led 10-person team to ship no-code conversational AI platform in 3 months. Knowledge Base, Document Ingestion, Workflow Builder. $1M ARR. Studio acqui-hired.</p></div>
+    <div class="wpir"><p class="wpiy">2018 – 2024</p><p class="wpirl">Head of Product Design</p><div class="wpit2"><span class="pill pill-o">Conversational AI</span><span class="pill pill-o">Wealth Mgmt</span></div></div>
+  </div>
+  <div class="wpi" onclick="nav('cs1')">
+    <div><p class="wpit">Awesome Daddies Interactive — Design Studio</p><p class="wpid">Founded and scaled a 15-person product design studio. Fintech, retail banking, B2B SaaS, consumer apps across India, Denmark, USA.</p></div>
+    <div class="wpir"><p class="wpiy">2014 – 2018</p><p class="wpirl">Founder &amp; Lead Designer</p><div class="wpit2"><span class="pill pill-o">Studio</span><span class="pill pill-o">Founding</span></div></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     CASE STUDY 1: ZENSKAR — DEEP VERSION
+══════════════════════════════════════════════════════ -->
+<div class="page" id="pg-cs1">
+  <div style="padding:18px 40px 0"><span class="cs-back" onclick="nav('work')">← all work</span></div>
+  <div class="cs-wrap">
+    <div class="cs-sidebar">
+      <p class="cs-toc-label">Contents</p>
+      <div class="cs-toc-item a" onclick="toc(this)"><span class="cs-toc-num">01</span>Context</div>
+      <div class="cs-toc-item" onclick="toc(this)"><span class="cs-toc-num">02</span>The users</div>
+      <div class="cs-toc-item" onclick="toc(this)"><span class="cs-toc-num">03</span>4 challenges</div>
+      <div class="cs-toc-item" onclick="toc(this)"><span class="cs-toc-num">04</span>Conceptual model</div>
+      <div class="cs-toc-item" onclick="toc(this)"><span class="cs-toc-num">05</span>Products</div>
+      <div class="cs-toc-item" onclick="toc(this)"><span class="cs-toc-num">06</span>Add Price</div>
+      <div class="cs-toc-item" onclick="toc(this)"><span class="cs-toc-num">07</span>Contracts</div>
+      <div class="cs-toc-item" onclick="toc(this)"><span class="cs-toc-num">08</span>Contract timeline</div>
+      <div class="cs-toc-item" onclick="toc(this)"><span class="cs-toc-num">09</span>Edit panel</div>
+      <div class="cs-toc-item" onclick="toc(this)"><span class="cs-toc-num">10</span>Invoice preview</div>
+      <div class="cs-toc-item" onclick="toc(this)"><span class="cs-toc-num">11</span>Outcome</div>
+    </div>
+
+    <div class="cs-body">
+      <!-- Header -->
+      <div class="cs-header">
+        <div style="display:flex;gap:6px;margin-bottom:14px"><span class="pill pill-o">B2B SaaS · Fintech · Billing</span><span class="pill pill-o">2024 – present</span></div>
+        <h1 class="cs-h1">Zenskar — <em>making complex billing legible</em></h1>
+        <p class="cs-lede">Zenskar is an end-to-end billing and revenue recognition system for usage-based SaaS. I joined as founding designer and redesigned the entire product experience — from empty states to a two-mode edit panel that adapts to contract complexity in real time.</p>
+        <div class="cs-meta">
+          <div class="cs-meta-item"><p class="cs-meta-l">Role</p><p class="cs-meta-v">Lead / Founding Designer</p></div>
+          <div class="cs-meta-item"><p class="cs-meta-l">Team</p><p class="cs-meta-v">2 designers, engineering</p></div>
+          <div class="cs-meta-item"><p class="cs-meta-l">Domain</p><p class="cs-meta-v">Billing & Subscription SaaS</p></div>
+          <div class="cs-meta-item"><p class="cs-meta-l">Competitors</p><p class="cs-meta-v">Stripe Billing, Zuora, Chargebee</p></div>
+        </div>
+      </div>
+
+      <!-- 01 Context -->
+      <div class="cs-section">
+        <p class="cs-section-label">01 — Context</p>
+        <h2 class="cs-h2">Sales-led growth with a product <em>that wasn't keeping up</em></h2>
+        <p class="cs-p">Zenskar's growth was sales-led, with about <strong>40 demos happening every week</strong>. The sales team tagged the design team for qualified prospects — which meant we were learning directly from potential customers what was working and what wasn't. Each enterprise customer had their own dedicated Slack channel for feedback and communication.</p>
+        <p class="cs-p">The problem was structural: pilot users received sandbox access with dummy data and then were largely left to figure it out. Usability issues were stacking up, new customer requirements kept coming in, and the roadmap had ambitious features that couldn't land without a better foundation.</p>
+        <p class="cs-p">My job was to find the patterns beneath the noise and redesign the product around the user's actual mental model — not the system's internal data model.</p>
+      </div>
+
+      <!-- 02 Users -->
+      <div class="cs-section">
+        <p class="cs-section-label">02 — The users</p>
+        <h2 class="cs-h2">Two very different people, <em>one product</em></h2>
+        <p class="cs-p">Zenskar's key users are <strong>sales representatives</strong> and <strong>accountants</strong> at companies selling usage-based services. A classic example: an API company charging $0.1/minute for video calls. The sales rep sets up the deal, the accountant verifies the invoices.</p>
+        <div class="cs-compare">
+          <div class="cs-comp-before" style="background:var(--ocbg);border-color:rgba(196,184,154,.3)">
+            <p class="cs-comp-label" style="color:var(--octx)">Sales rep</p>
+            <p class="cs-comp-p">Owns the customer relationship. Sets up products, creates contracts, negotiates pricing. Needs speed and clarity. Doesn't understand billing mechanics deeply but knows their customers' contracts inside out.</p>
+          </div>
+          <div class="cs-comp-after">
+            <p class="cs-comp-label">Accountant</p>
+            <p class="cs-comp-p">Owns invoice accuracy. Verifies billing, approves invoices before they go to customers. Needs confidence that the system reflects reality. Highly sensitive to errors or ambiguity in numbers.</p>
+          </div>
+        </div>
+        <p class="cs-p">Both users share one primary goal: <strong>automatically generate correct invoices at scale</strong>. Everything else — products, prices, contracts, metering — is a means to that end. This framing became the north star for every design decision.</p>
+      </div>
+
+      <!-- 03 Challenges -->
+      <div class="cs-section">
+        <p class="cs-section-label">03 — The four challenges</p>
+        <h2 class="cs-h2">Four structural problems <em>blocking the primary goal</em></h2>
+        <div class="cs-challenges">
+          <div class="cs-ch">
+            <p class="cs-ch-n">Challenge 01</p>
+            <p class="cs-ch-t">Documentation dependency</p>
+            <p class="cs-ch-d">Pilot users got sandbox access with dummy data but spent hours in documentation before touching the product. Many lost interest before creating their first invoice. The product wasn't self-explanatory.</p>
+          </div>
+          <div class="cs-ch">
+            <p class="cs-ch-n">Challenge 02</p>
+            <p class="cs-ch-t">No product reusability</p>
+            <p class="cs-ch-d">The same product — say, a video call API — might be sold at $0.1/min to one customer and $0.2/min to another. But there was no way to reuse a product with different pricing. Users duplicated products instead, creating a mess.</p>
+          </div>
+          <div class="cs-ch">
+            <p class="cs-ch-n">Challenge 03</p>
+            <p class="cs-ch-t">Contracts as a black box</p>
+            <p class="cs-ch-d">Contracts could get complex — varying billing cycles, post-paid vs pre-paid terms, product bundling. But the system gave no feedback while building. Users couldn't see what invoices would look like until after publishing.</p>
+          </div>
+          <div class="cs-ch">
+            <p class="cs-ch-n">Challenge 04</p>
+            <p class="cs-ch-t">Flexibility vs. complexity</p>
+            <p class="cs-ch-d">The advanced price editor — a data flow diagram — was powerful but nearly unusable for non-engineers. Only the internal team used it. Flexibility existed but was locked away from the people who needed it.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04 Conceptual model -->
+      <div class="cs-section">
+        <p class="cs-section-label">04 — Conceptual model</p>
+        <h2 class="cs-h2">Before any screens: <em>map the mental model</em></h2>
+        <p class="cs-p">Most of the confusion came from a mismatch between how users thought about billing and how Zenskar's system actually worked. Before touching Figma, I built a conceptual model of billing from the user's perspective and validated it with the engineering team.</p>
+        <p class="cs-p">The model is simple: <strong>Products contain Prices. Prices go into Contracts. Contracts generate Invoices.</strong> This four-step chain had to be visible and legible throughout the product — not hidden in navigation or documentation.</p>
+
+        <!-- Conceptual model visual -->
+        <div class="cs-screen">
+          <div class="cs-screen-label">Conceptual model — billing <span class="cs-screen-badge">Designed in Figma</span></div>
+          <div style="display:flex;align-items:center;justify-content:center;gap:0;padding:8px 0">
+            <div style="background:var(--bg2);border:0.5px solid var(--br);border-radius:3px;padding:14px 18px;text-align:center;min-width:90px">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--oc);margin-bottom:4px">01</div>
+              <div style="font-size:12px;font-weight:500;color:#1A1A18">Products</div>
+              <div style="font-size:10px;color:var(--tx3);margin-top:3px">+ Prices</div>
+            </div>
+            <div style="padding:0 8px;color:var(--tx4);font-size:16px">→</div>
+            <div style="background:var(--bg2);border:0.5px solid var(--br);border-radius:3px;padding:14px 18px;text-align:center;min-width:90px">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--oc);margin-bottom:4px">02</div>
+              <div style="font-size:12px;font-weight:500;color:#1A1A18">Contracts</div>
+              <div style="font-size:10px;color:var(--tx3);margin-top:3px">+ Terms</div>
+            </div>
+            <div style="padding:0 8px;color:var(--tx4);font-size:16px">→</div>
+            <div style="background:var(--bg2);border:0.5px solid var(--br);border-radius:3px;padding:14px 18px;text-align:center;min-width:90px">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--oc);margin-bottom:4px">03</div>
+              <div style="font-size:12px;font-weight:500;color:#1A1A18">Publish</div>
+              <div style="font-size:10px;color:var(--tx3);margin-top:3px">Go live</div>
+            </div>
+            <div style="padding:0 8px;color:var(--tx4);font-size:16px">→</div>
+            <div style="background:var(--gnbg);border:0.5px solid rgba(42,74,50,.2);border-radius:3px;padding:14px 18px;text-align:center;min-width:90px">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--gntx);margin-bottom:4px">Goal ✓</div>
+              <div style="font-size:12px;font-weight:500;color:#1A1A18">Invoices</div>
+              <div style="font-size:10px;color:var(--tx3);margin-top:3px">Auto-generated</div>
+            </div>
+          </div>
+        </div>
+
+        <p class="cs-p">This model was communicated to users throughout the product — in empty states, onboarding flows, and navigation. The goal was that within 10 minutes of first use, a new pilot user could articulate how the system worked without reading a single doc.</p>
+      </div>
+
+      <!-- 05 Products -->
+      <div class="cs-section">
+        <p class="cs-section-label">05 — Products module</p>
+        <h2 class="cs-h2">Empty states that <em>teach, not just prompt</em></h2>
+        <p class="cs-p">The first thing a new user sees is an empty product list. This was redesigned from a blank page with a "Create Product" button into an educational moment — explaining what a product is, what it's used for, and linking to docs — all before the user needs to do anything.</p>
+
+        <!-- Empty state mockup -->
+        <div class="cs-screen">
+          <div class="cs-screen-label">Product listing — empty state (first-time user) <span class="cs-screen-badge">Redesigned</span></div>
+          <div class="wf">
+            <div class="wf-nav">
+              <span class="wf-nav-item">Dashboard</span>
+              <span class="wf-nav-item act">Products</span>
+              <span class="wf-nav-item">Contracts</span>
+              <span class="wf-nav-item">Invoices</span>
+              <span class="wf-nav-item">Metering</span>
+            </div>
+            <div class="wf-content">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+                <div><div style="font-size:14px;font-weight:500;color:#1A1A18;margin-bottom:3px">Products</div><div style="font-size:11px;color:var(--tx3)">Services and items you sell to customers</div></div>
+                <div class="wf-btn primary">+ Create product</div>
+              </div>
+              <div style="border:1px dashed var(--br);border-radius:4px;padding:32px;text-align:center;background:var(--bg2)">
+                <div style="width:40px;height:40px;background:var(--ocbg);border-radius:50%;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:18px">📦</div>
+                <div style="font-size:13px;font-weight:500;color:#1A1A18;margin-bottom:6px">No products yet</div>
+                <div style="font-size:11px;color:var(--tx3);max-width:280px;margin:0 auto 14px;line-height:1.6">A product is any service or item you sell to your customers as part of a contract. Create one price or many — reuse across contracts.</div>
+                <div style="display:flex;gap:8px;justify-content:center">
+                  <div class="wf-btn primary">Create your first product</div>
+                  <div class="wf-btn sec">View docs ↗</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ann-grid">
+          <div class="ann-item"><span class="ann-num">①</span><span class="ann-text"><strong>Explains the concept</strong> before asking the user to act — reduces the need for external documentation</span></div>
+          <div class="ann-item"><span class="ann-num">②</span><span class="ann-text"><strong>Two CTAs</strong> — create immediately or read docs first. Respects both learner types</span></div>
+        </div>
+
+        <h3 class="cs-h3">The "Prices within Products" insight</h3>
+        <p class="cs-p">The most important design decision in this module came from observing real user behaviour: people were creating duplicate products just to have different pricing for different customers. A video call API sold at $0.1/min to one customer, $0.2/min to another — two separate products in the system.</p>
+
+        <div class="cs-compare">
+          <div class="cs-comp-before">
+            <p class="cs-comp-label">Before — duplicate products</p>
+            <p class="cs-comp-p">Video Call API (Standard) → $0.1/min<br>Video Call API (Premium) → $0.2/min<br>Two products. Same underlying service. Impossible to manage at scale.</p>
+          </div>
+          <div class="cs-comp-after">
+            <p class="cs-comp-label">After — prices within a product</p>
+            <p class="cs-comp-p">Video Call API<br>↳ Price: Standard → $0.1/min<br>↳ Price: Premium → $0.2/min<br>One product, multiple pricing instances. Reuse without duplication.</p>
+          </div>
+        </div>
+
+        <!-- Create product mockup -->
+        <div class="cs-screen">
+          <div class="cs-screen-label">Create product — with prices concept <span class="cs-screen-badge">Core redesign</span></div>
+          <div class="wf">
+            <div class="wf-nav">
+              <span class="wf-nav-item act">Products</span><span class="wf-nav-item">Contracts</span><span class="wf-nav-item">Invoices</span>
+            </div>
+            <div class="wf-content">
+              <div style="display:flex;gap:16px">
+                <div style="flex:1">
+                  <div style="font-size:12px;font-weight:500;color:#1A1A18;margin-bottom:12px">Product details</div>
+                  <div class="wf-input"><span class="wf-input-label">Product name</span><div class="wf-input-val" style="background:#E8F4EE;width:120px"></div></div>
+                  <div class="wf-input"><span class="wf-input-label">Description</span><div class="wf-input-val"></div></div>
+                  <div class="wf-input"><span class="wf-input-label">Type</span><div class="wf-input-val" style="width:80px;background:#E8F4EE"></div></div>
+                  <div style="margin-top:16px;font-size:12px;font-weight:500;color:#1A1A18;margin-bottom:8px">Prices <span style="font-size:9px;font-weight:400;color:var(--tx3);margin-left:6px">Add multiple prices for different customers or contracts</span></div>
+                  <div style="border:0.5px solid var(--br);border-radius:3px;overflow:hidden;margin-bottom:6px">
+                    <div style="display:flex;justify-content:space-between;align-items:center;padding:9px 10px;background:var(--gnbg)">
+                      <div><span style="font-size:10px;font-weight:500;color:#1A1A18">Standard</span><span style="font-size:9px;color:var(--tx3);margin-left:8px">$0.10 / min · Monthly</span></div>
+                      <span class="wf-badge green">Active</span>
+                    </div>
+                    <div style="display:flex;justify-content:space-between;align-items:center;padding:9px 10px">
+                      <div><span style="font-size:10px;font-weight:500;color:#1A1A18">Enterprise</span><span style="font-size:9px;color:var(--tx3);margin-left:8px">$0.07 / min · Quarterly</span></div>
+                      <span class="wf-badge ochre">Draft</span>
+                    </div>
+                  </div>
+                  <div class="wf-btn sec" style="font-size:9px">+ Add price</div>
+                </div>
+                <div style="width:200px;background:var(--bg2);border-radius:3px;padding:12px;flex-shrink:0">
+                  <div style="font-size:10px;font-weight:500;color:#1A1A18;margin-bottom:8px">Preview</div>
+                  <div style="font-size:9px;color:var(--tx3);margin-bottom:6px">Selected price: Standard</div>
+                  <div style="background:#fff;border-radius:2px;padding:8px;border:0.5px solid var(--br);font-size:9px;color:var(--tx2);line-height:1.6">
+                    Rate: <strong>$0.10 / minute</strong><br>Billing: Monthly<br>Cycle: Calendar month
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 06 Add Price -->
+      <div class="cs-section">
+        <p class="cs-section-label">06 — Add Price</p>
+        <h2 class="cs-h2">Taming pricing complexity <em>without hiding it</em></h2>
+        <p class="cs-p">Pricing in usage-based billing can get complex fast: flat fee, per-unit, tiered, volume, matrix. Combined with billing cycles, free credits, discounts, minimum commitments, and taxes — the configuration space is enormous.</p>
+        <p class="cs-p">The design challenge: show all of this without overwhelming a user who just wants a simple monthly fee. Three principles guided the solution.</p>
+
+        <div class="cs-challenges">
+          <div class="cs-ch"><p class="cs-ch-n">Principle 01</p><p class="cs-ch-t">Group, don't list</p><p class="cs-ch-d">Data inputs are grouped by meaning (rate, billing, discounts) rather than presented as one long scrollable form. Users can focus on one thing at a time.</p></div>
+          <div class="cs-ch"><p class="cs-ch-n">Principle 02</p><p class="cs-ch-t">Always-accessible tour</p><p class="cs-ch-d">First-time users get a guided tour. The info icon makes it re-accessible anytime — no need to leave the screen or open a doc.</p></div>
+          <div class="cs-ch"><p class="cs-ch-n">Principle 03</p><p class="cs-ch-t">Real-time output preview</p><p class="cs-ch-d">As config data is entered, the right panel shows a live invoice preview. Users see the output of their decisions before they commit.</p></div>
+          <div class="cs-ch"><p class="cs-ch-n">Principle 04</p><p class="cs-ch-t">Metering bridge</p><p class="cs-ch-d">Usage-based products need metering setup. The price creation flow becomes an introduction to the Metering module — so users understand the dependency before being surprised by it.</p></div>
+        </div>
+
+        <!-- Add price mockup -->
+        <div class="cs-screen">
+          <div class="cs-screen-label">Add Price — grouped form with live preview <span class="cs-screen-badge">Key redesign</span></div>
+          <div class="wf">
+            <div style="display:grid;grid-template-columns:1fr 220px;height:220px">
+              <div style="padding:14px;overflow:auto">
+                <div style="font-size:11px;font-weight:500;color:#1A1A18;margin-bottom:10px;display:flex;justify-content:space-between"><span>Pricing model</span><span style="font-size:9px;font-weight:400;color:var(--oc);cursor:pointer">ⓘ Quick tour</span></div>
+                <div style="display:flex;gap:6px;margin-bottom:12px">
+                  <div style="padding:5px 10px;background:var(--tx);color:#fff;border-radius:2px;font-size:9px;font-weight:500">Flat fee</div>
+                  <div style="padding:5px 10px;border:0.5px solid var(--br);border-radius:2px;font-size:9px;color:var(--tx3)">Per unit</div>
+                  <div style="padding:5px 10px;border:0.5px solid var(--br);border-radius:2px;font-size:9px;color:var(--tx3)">Tiered</div>
+                  <div style="padding:5px 10px;border:0.5px solid var(--br);border-radius:2px;font-size:9px;color:var(--tx3)">Volume</div>
+                </div>
+                <div class="wf-input"><span class="wf-input-label">Amount</span><div class="wf-input-val" style="background:#E8F4EE;width:60px"></div><span style="font-size:9px;color:var(--tx3);margin-left:6px">USD</span></div>
+                <div style="font-size:11px;font-weight:500;color:#1A1A18;margin:10px 0 8px">Billing cadence</div>
+                <div class="wf-input"><span class="wf-input-label">Billing cycle</span><div class="wf-input-val" style="background:#E8F4EE;width:70px"></div></div>
+                <div class="wf-input"><span class="wf-input-label">Payment type</span><div class="wf-input-val" style="width:80px;background:#E8F4EE"></div></div>
+                <div style="font-size:10px;color:var(--tx3);margin-top:6px;display:flex;gap:12px">
+                  <span style="cursor:pointer;color:var(--oc)">+ Free credits</span>
+                  <span style="cursor:pointer;color:var(--oc)">+ Discount</span>
+                  <span style="cursor:pointer;color:var(--oc)">+ Min. commitment</span>
+                </div>
+              </div>
+              <div style="background:var(--bg2);border-left:0.5px solid var(--br);padding:12px">
+                <div style="font-size:10px;font-weight:500;color:#1A1A18;margin-bottom:8px">Invoice preview</div>
+                <div style="background:#fff;border-radius:2px;border:0.5px solid var(--br);padding:10px;font-size:9px;color:var(--tx2);line-height:1.8">
+                  <div style="font-weight:500;color:#1A1A18;margin-bottom:6px">Sample invoice</div>
+                  <div style="display:flex;justify-content:space-between"><span>Video Call API × 1,000 min</span><span style="font-weight:500">$100.00</span></div>
+                  <div style="height:0.5px;background:var(--br);margin:6px 0"></div>
+                  <div style="display:flex;justify-content:space-between;font-weight:500;color:#1A1A18"><span>Total</span><span>$100.00</span></div>
+                </div>
+                <div style="font-size:9px;color:var(--tx4);margin-top:8px;line-height:1.5">Updates as you configure. Based on 1,000 units.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 07 Contracts -->
+      <div class="cs-section">
+        <p class="cs-section-label">07 — Contracts</p>
+        <h2 class="cs-h2">Redefining what "contract" <em>means in this context</em></h2>
+        <p class="cs-p">A contract in the legal sense is a broad document. In Zenskar, "contract" has a more specific meaning: the subset of agreement data related to usage, pricing models, and billing terms. This distinction had to be made explicit in the UI — otherwise users conflated it with their actual legal contracts and got confused about what to enter.</p>
+        <p class="cs-p">The contract creation flow guides users through: selecting a customer, choosing a billing period, adding products (with their chosen prices), and setting payment terms. First-time users get a quick tour of the summary page.</p>
+
+        <!-- Contract screen mockup -->
+        <div class="cs-screen">
+          <div class="cs-screen-label">Contract summary — first-time user tour active <span class="cs-screen-badge">Onboarding layer</span></div>
+          <div class="wf">
+            <div class="wf-nav">
+              <span class="wf-nav-item">Products</span><span class="wf-nav-item act">Contracts</span><span class="wf-nav-item">Invoices</span>
+            </div>
+            <div class="wf-content">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+                <div>
+                  <div style="font-size:13px;font-weight:500;color:#1A1A18">Acme Corp — Q1 2024</div>
+                  <div style="font-size:10px;color:var(--tx3);margin-top:2px">Contract · Jan 1 – Mar 31 · Post-paid · Monthly billing</div>
+                </div>
+                <div style="display:flex;gap:6px"><div class="wf-btn sec">Edit</div><div class="wf-btn primary">Publish contract</div></div>
+              </div>
+              <div class="wf-two-col">
+                <div>
+                  <div style="font-size:10px;font-weight:500;color:#1A1A18;margin-bottom:6px">Products in this contract</div>
+                  <div class="wf-block">
+                    <div style="display:flex;justify-content:space-between;align-items:center">
+                      <div><div class="wf-block-h"></div><div style="font-size:10px;color:var(--tx3)">Standard · $0.10/min · Monthly</div></div>
+                      <span class="wf-badge green">Active</span>
+                    </div>
+                  </div>
+                  <div class="wf-block">
+                    <div style="display:flex;justify-content:space-between;align-items:center">
+                      <div><div class="wf-block-h" style="width:45%"></div><div style="font-size:10px;color:var(--tx3)">Flat fee · $500/mo · Monthly</div></div>
+                      <span class="wf-badge green">Active</span>
+                    </div>
+                  </div>
+                  <div class="wf-btn sec" style="margin-top:4px;font-size:9px">+ Add product</div>
+                </div>
+                <div>
+                  <div style="font-size:10px;font-weight:500;color:#1A1A18;margin-bottom:6px">Contract terms</div>
+                  <div style="font-size:9px;color:var(--tx2);line-height:1.8">
+                    <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:0.5px solid var(--br2)"><span style="color:var(--tx4)">Customer</span><span style="font-weight:500">Acme Corp</span></div>
+                    <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:0.5px solid var(--br2)"><span style="color:var(--tx4)">Period</span><span>Jan 1 – Mar 31</span></div>
+                    <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:0.5px solid var(--br2)"><span style="color:var(--tx4)">Payment</span><span>Post-paid</span></div>
+                    <div style="display:flex;justify-content:space-between;padding:4px 0"><span style="color:var(--tx4)">Currency</span><span>USD</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 08 Contract timeline -->
+      <div class="cs-section">
+        <p class="cs-section-label">08 — Contract timeline</p>
+        <h2 class="cs-h2">The feedback loop that was <em>completely missing</em></h2>
+        <p class="cs-p">The biggest single pain point: users couldn't see what a contract would produce until after they published it. They'd build a complex contract with multiple products and billing periods, hit publish — and then discover the invoices looked nothing like they expected.</p>
+        <div class="cs-pq"><p class="cs-pq-t">"The billing cadence is finally something I can show to a customer without needing to explain what everything means first." — Enterprise customer, via Slack</p></div>
+        <p class="cs-p">Once products are added to a contract, a <strong>live timeline generates automatically</strong> showing exactly when invoices will be created and what amounts they'll contain. For metered products, it shows projected amounts based on current usage data. For non-metered, the amount is exact.</p>
+
+        <!-- Timeline mockup -->
+        <div class="cs-screen">
+          <div class="cs-screen-label">Contract timeline — live invoice preview while building <span class="cs-screen-badge">Key innovation</span></div>
+          <div class="wf">
+            <div class="wf-content">
+              <div style="font-size:11px;font-weight:500;color:#1A1A18;margin-bottom:4px">Invoice timeline · Jan 2024 – Mar 2024</div>
+              <div style="font-size:9px;color:var(--tx3);margin-bottom:12px">Auto-generated based on products and billing cadence. Updates in real time.</div>
+              <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px">
+                <div style="border:0.5px solid var(--br);border-radius:3px;padding:10px">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--oc);margin-bottom:4px">Jan 31</div>
+                  <div style="font-size:11px;font-weight:500;color:#1A1A18;margin-bottom:2px">Invoice #1</div>
+                  <div style="font-size:10px;color:var(--tx3)">Video API: ~$340<br>Platform fee: $500</div>
+                  <div style="font-size:11px;font-weight:500;color:#1A1A18;margin-top:6px;padding-top:6px;border-top:0.5px solid var(--br2)">Est. $840</div>
+                  <span class="wf-badge ochre" style="margin-top:4px">Upcoming</span>
+                </div>
+                <div style="border:0.5px solid var(--br);border-radius:3px;padding:10px">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--oc);margin-bottom:4px">Feb 29</div>
+                  <div style="font-size:11px;font-weight:500;color:#1A1A18;margin-bottom:2px">Invoice #2</div>
+                  <div style="font-size:10px;color:var(--tx3)">Video API: ~$340<br>Platform fee: $500</div>
+                  <div style="font-size:11px;font-weight:500;color:#1A1A18;margin-top:6px;padding-top:6px;border-top:0.5px solid var(--br2)">Est. $840</div>
+                  <span class="wf-badge ochre" style="margin-top:4px">Upcoming</span>
+                </div>
+                <div style="border:0.5px solid var(--br);border-radius:3px;padding:10px">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--oc);margin-bottom:4px">Mar 31</div>
+                  <div style="font-size:11px;font-weight:500;color:#1A1A18;margin-bottom:2px">Invoice #3</div>
+                  <div style="font-size:10px;color:var(--tx3)">Video API: ~$340<br>Platform fee: $500</div>
+                  <div style="font-size:11px;font-weight:500;color:#1A1A18;margin-top:6px;padding-top:6px;border-top:0.5px solid var(--br2)">Est. $840</div>
+                  <span class="wf-badge ochre" style="margin-top:4px">Upcoming</span>
+                </div>
+              </div>
+              <div style="font-size:9px;color:var(--tx4)">~ Metered amounts are estimates based on current billing period data. Non-metered amounts are exact.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 09 Edit panel -->
+      <div class="cs-section">
+        <p class="cs-section-label">09 — Edit product panel</p>
+        <h2 class="cs-h2">Simple by default, <em>advanced when needed</em></h2>
+        <p class="cs-p">The core tension: most products are simple — one price, one billing cadence. But some customers need mid-contract changes: a price bump in Q3, a billing shift from monthly to quarterly, a discount that only applies for the first 6 months. The old system had no clean way to handle this without creating separate line items or manual overrides.</p>
+        <p class="cs-p">I designed a <strong>two-mode panel</strong>. The key insight: the mode switch doesn't need a toggle. It's automatic and data-driven.</p>
+
+        <div class="cs-compare">
+          <div class="cs-comp-before" style="background:var(--ocbg);border-color:rgba(196,184,154,.3)">
+            <p class="cs-comp-label" style="color:var(--octx)">Simple mode — default (~80% of cases)</p>
+            <p class="cs-comp-p">One price, one quantity, one billing cadence spanning the full product period. No timelines, no version management. The form stays flat and scannable. You configure what you need and move on.</p>
+          </div>
+          <div class="cs-comp-after">
+            <p class="cs-comp-label">Advanced mode — activates automatically</p>
+            <p class="cs-comp-p">The moment any attribute gets a second version, the layout shifts to an accordion with per-section timelines, version selection, and scheduling controls. Add a second version → advanced. Delete it → back to simple. No toggle. No settings.</p>
+          </div>
+        </div>
+
+        <!-- Edit panel mockup -->
+        <div class="cs-screen">
+          <div class="cs-screen-label">Edit product panel — advanced mode (2 price versions) <span class="cs-screen-badge">Auto-activates</span></div>
+          <div class="wf">
+            <div style="display:grid;grid-template-columns:1fr 280px;height:220px">
+              <div style="padding:12px;overflow:auto">
+                <div style="font-size:11px;font-weight:500;color:#1A1A18;margin-bottom:10px">Video Call API — Edit product</div>
+                <!-- Price accordion -->
+                <div style="border:0.5px solid var(--oc);border-radius:3px;margin-bottom:6px;overflow:hidden">
+                  <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 10px;background:var(--ocbg);cursor:pointer">
+                    <span style="font-size:10px;font-weight:500;color:var(--octx)">Price</span>
+                    <span style="font-size:9px;color:var(--octx)">2 versions ▾</span>
+                  </div>
+                  <div style="padding:8px 10px">
+                    <div style="display:flex;gap:6px;margin-bottom:6px">
+                      <div style="padding:4px 8px;background:var(--tx);color:#fff;border-radius:2px;font-size:8px">Jan–Jun: $0.10/min</div>
+                      <div style="padding:4px 8px;border:0.5px solid var(--br);border-radius:2px;font-size:8px;color:var(--tx3)">Jul–Dec: $0.08/min</div>
+                      <div style="padding:4px 8px;border:0.5px dashed var(--br);border-radius:2px;font-size:8px;color:var(--oc);cursor:pointer">+ version</div>
+                    </div>
+                    <div class="wf-input"><span class="wf-input-label">Rate (Jan–Jun)</span><div class="wf-input-val" style="background:#E8F4EE;width:50px"></div></div>
+                  </div>
+                </div>
+                <!-- Billing cadence accordion -->
+                <div style="border:0.5px solid var(--br);border-radius:3px;overflow:hidden">
+                  <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 10px;cursor:pointer">
+                    <span style="font-size:10px;font-weight:500;color:#1A1A18">Billing cadence</span>
+                    <span style="font-size:9px;color:var(--tx3)">1 version ▸</span>
+                  </div>
+                </div>
+              </div>
+              <div style="background:var(--bg2);border-left:0.5px solid var(--br);padding:12px">
+                <div style="font-size:10px;font-weight:500;color:#1A1A18;margin-bottom:8px">Timeline view</div>
+                <div style="font-size:9px;color:var(--tx4);margin-bottom:8px">How price versions align with billing</div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:8px">
+                  <div style="background:var(--ocbg);border-radius:2px;padding:5px 6px;text-align:center;font-size:8px;color:var(--octx);font-family:'JetBrains Mono',monospace">Jan–Jun<br>$0.10</div>
+                  <div style="background:var(--gnbg);border-radius:2px;padding:5px 6px;text-align:center;font-size:8px;color:var(--gntx);font-family:'JetBrains Mono',monospace">Jul–Dec<br>$0.08</div>
+                </div>
+                <div style="font-size:9px;color:var(--tx4);line-height:1.5">Price change highlighted in invoice preview automatically.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10 Invoice preview -->
+      <div class="cs-section">
+        <p class="cs-section-label">10 — Non-linear invoice preview</p>
+        <h2 class="cs-h2">Seeing the output <em>before you commit</em></h2>
+        <p class="cs-p">The final major design was the non-linear invoice preview — a reactive, card-based layout showing each future invoice as it will appear to the customer. Each card shows invoice date, amount, service period, and an editable quantity field for metered products.</p>
+        <p class="cs-p">The preview is fully <strong>reactive to configuration changes</strong>: amounts recalculate when price, model, tiers, billing cadence, or quantity change. Price changes and model changes are explicitly called out inline so users can see exactly what changed.</p>
+
+        <!-- Invoice preview mockup -->
+        <div class="cs-screen">
+          <div class="cs-screen-label">Non-linear invoice preview — reactive to config <span class="cs-screen-badge">Prototype built</span></div>
+          <div class="wf">
+            <div class="wf-content">
+              <div style="font-size:11px;font-weight:500;color:#1A1A18;margin-bottom:12px">Invoice preview <span style="font-size:9px;font-weight:400;color:var(--tx3);margin-left:6px">Recalculates as you change price config</span></div>
+              <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">
+                <div style="border:0.5px solid var(--br);border-radius:3px;overflow:hidden">
+                  <div style="padding:8px 10px;border-bottom:0.5px solid var(--br2)">
+                    <div style="font-size:9px;color:var(--tx4)">Jan 31, 2024 · Jan 1–31</div>
+                    <div style="font-size:13px;font-weight:500;color:#1A1A18;margin-top:2px">$940.00</div>
+                  </div>
+                  <div style="padding:8px 10px;font-size:9px;color:var(--tx2)">
+                    <div style="display:flex;justify-content:space-between"><span>Video API</span><span>$440</span></div>
+                    <div style="display:flex;justify-content:space-between"><span>Qty: <input type="number" value="4400" style="width:50px;border:0.5px solid var(--br);border-radius:2px;font-size:8px;padding:1px 3px"></span></div>
+                    <div style="display:flex;justify-content:space-between;margin-top:4px"><span>Platform fee</span><span>$500</span></div>
+                  </div>
+                  <div style="padding:6px 10px;background:var(--bg2)"><span class="wf-badge ochre">Upcoming</span></div>
+                </div>
+                <div style="border:0.5px solid var(--br);border-radius:3px;overflow:hidden">
+                  <div style="padding:8px 10px;border-bottom:0.5px solid var(--br2)">
+                    <div style="font-size:9px;color:var(--tx4)">Feb 29, 2024 · Feb 1–29</div>
+                    <div style="font-size:13px;font-weight:500;color:#1A1A18;margin-top:2px">$940.00</div>
+                  </div>
+                  <div style="padding:8px 10px;font-size:9px;color:var(--tx2)">
+                    <div style="display:flex;justify-content:space-between"><span>Video API</span><span>$440</span></div>
+                    <div style="display:flex;justify-content:space-between"><span>Platform fee</span><span>$500</span></div>
+                  </div>
+                  <div style="padding:6px 10px;background:var(--bg2)"><span class="wf-badge ochre">Upcoming</span></div>
+                </div>
+                <div style="border:0.5px solid var(--br);border-radius:3px;overflow:hidden;opacity:.6">
+                  <div style="padding:8px 10px;border-bottom:0.5px solid var(--br2)">
+                    <div style="font-size:9px;color:var(--tx4)">Mar 31, 2024 · Mar 1–31</div>
+                    <div style="font-size:13px;font-weight:500;color:#1A1A18;margin-top:2px">$940.00</div>
+                  </div>
+                  <div style="padding:8px 10px;font-size:9px;color:var(--tx2)">
+                    <div style="display:flex;justify-content:space-between"><span>Video API</span><span>$440</span></div>
+                    <div style="display:flex;justify-content:space-between"><span>Platform fee</span><span>$500</span></div>
+                  </div>
+                  <div style="padding:6px 10px;background:var(--bg2)"><span class="wf-badge ochre">Upcoming</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11 Outcome -->
+      <div class="cs-section">
+        <p class="cs-section-label">11 — Outcome</p>
+        <h2 class="cs-h2">Phased release, <em>strong signal</em></h2>
+        <p class="cs-p">The new design was released to existing customers in phases. The feedback was excellent and two major insights immediately shaped the next release cycle:</p>
+        <div class="cs-challenges">
+          <div class="cs-ch"><p class="cs-ch-n">Insight 01</p><p class="cs-ch-t">Financial relationship view</p><p class="cs-ch-d">Users want to see their full financial relationship with each customer across all contracts — not just the current one. A customer-level revenue view is now in the roadmap.</p></div>
+          <div class="cs-ch"><p class="cs-ch-n">Insight 02</p><p class="cs-ch-t">Collaborative editing</p><p class="cs-ch-d">Multiple users working on the same contract were missing each other's changes. A collaboration layer with change tracking is planned for the next phase.</p></div>
+        </div>
+        <div class="cs-stats">
+          <div class="cs-stat"><p class="cs-stat-n">↓ signif.</p><p class="cs-stat-l">Pilot drop-off and documentation dependency</p></div>
+          <div class="cs-stat"><p class="cs-stat-n">40/wk</p><p class="cs-stat-l">Weekly demos now supported by a self-explanatory product</p></div>
+          <div class="cs-stat"><p class="cs-stat-n">Ongoing</p><p class="cs-stat-l">Phased release with excellent customer feedback</p></div>
+        </div>
+        <div class="cs-fq">
+          <p class="cs-fq-t">"The billing cadence is finally something I can show to a customer without needing to explain what everything means first."</p>
+          <p class="cs-fq-a">— Enterprise customer feedback via dedicated Slack channel</p>
+        </div>
+      </div>
+
+      <div class="cs-nav"><span class="cs-nav-b" onclick="nav('work')">← All work</span><span class="cs-nav-b" onclick="nav('cs2')">CogniCor →</span></div>
+    </div><!-- end cs-body -->
+  </div><!-- end cs-wrap -->
+</div><!-- end cs1 -->
+
+<!-- ══════════════════════════════════════════════════════
+     CASE STUDY 2: COGNICOR — DEEP VERSION
+══════════════════════════════════════════════════════ -->
+<div class="page" id="pg-cs2">
+  <div style="padding:18px 40px 0"><span class="cs-back" onclick="nav('work')">← all work</span></div>
+  <div class="cs-wrap">
+    <div class="cs-sidebar">
+      <p class="cs-toc-label">Contents</p>
+      <div class="cs-toc-item a" onclick="toc(this)"><span class="cs-toc-num">01</span>The bet</div>
+      <div class="cs-toc-item" onclick="toc(this)"><span class="cs-toc-num">02</span>My role</div>
+      <div class="cs-toc-item" onclick="toc(this)"><span class="cs-toc-num">03</span>Phase 1: Understand</div>
+      <div class="cs-toc-item" onclick="toc(this)"><span class="cs-toc-num">04</span>SME interviews</div>
+      <div class="cs-toc-item" onclick="toc(this)"><span class="cs-toc-num">05</span>Persona</div>
+      <div class="cs-toc-item" onclick="toc(this)"><span class="cs-toc-num">06</span>Phase 2: Define</div>
+      <div class="cs-toc-item" onclick="toc(this)"><span class="cs-toc-num">07</span>Knowledge base</div>
+      <div class="cs-toc-item" onclick="toc(this)"><span class="cs-toc-num">08</span>Doc ingestion</div>
+      <div class="cs-toc-item" onclick="toc(this)"><span class="cs-toc-num">09</span>Workflow builder</div>
+      <div class="cs-toc-item" onclick="toc(this)"><span class="cs-toc-num">10</span>$1M ARR</div>
+    </div>
+
+    <div class="cs-body">
+      <!-- Header -->
+      <div class="cs-header">
+        <div style="display:flex;gap:6px;margin-bottom:14px"><span class="pill pill-o">Conversational AI · Wealth Mgmt · 0→1</span><span class="pill pill-o">2018 – 2024</span></div>
+        <h1 class="cs-h1">CogniCor — <em>a $1M ARR bet on design</em></h1>
+        <p class="cs-lede">I led a 10-person design and development team from my studio to design and ship a no-code enterprise AI platform in 3 months. The beta closed a $1M ARR deal with one of the largest US wealth management firms. The entire studio was acqui-hired.</p>
+        <div class="cs-meta">
+          <div class="cs-meta-item"><p class="cs-meta-l">Role</p><p class="cs-meta-v">Head of Product Design</p></div>
+          <div class="cs-meta-item"><p class="cs-meta-l">Team</p><p class="cs-meta-v">10 designers + developers</p></div>
+          <div class="cs-meta-item"><p class="cs-meta-l">Timeline</p><p class="cs-meta-v">3 months to beta</p></div>
+          <div class="cs-meta-item"><p class="cs-meta-l">Outcome</p><p class="cs-meta-v">$1M ARR · Studio acqui-hired</p></div>
+        </div>
+      </div>
+
+      <!-- 01 The bet -->
+      <div class="cs-section">
+        <p class="cs-section-label">01 — The bet</p>
+        <h2 class="cs-h2">Stop selling products. <em>Start selling a platform.</em></h2>
+        <p class="cs-p">CogniCor's early business model was services: they built custom conversational AI agents for enterprise clients in wealth management and insurance. LPL Financial, Ameriprise, BNY Pershing — big names, but an unscalable model. Every new client needed a large team, months of work, and custom engineering for each project.</p>
+        <p class="cs-p">As they added clients, four structural problems became unmistakeable:</p>
+        <div class="cs-challenges">
+          <div class="cs-ch"><p class="cs-ch-n">Problem 01</p><p class="cs-ch-t">Cost of scalability</p><p class="cs-ch-d">Each project needed a large team to develop and maintain it. Though many artefacts and code could be reused, there was no system for it — so projects took many months each time.</p></div>
+          <div class="cs-ch"><p class="cs-ch-n">Problem 02</p><p class="cs-ch-t">Lack of customer participation</p><p class="cs-ch-d">Enterprise customers had to depend on CogniCor for any changes or additions to the digital assistant. No transparency. High turnaround time. Customers had data but couldn't control it themselves.</p></div>
+          <div class="cs-ch"><p class="cs-ch-n">Problem 03</p><p class="cs-ch-t">Scattered toolchain</p><p class="cs-ch-d">The team used multiple disconnected tools to build different modules — GATE, JAPE, PROTEGE, ECLIPSE. Purely technical. Impossible to use without engineering expertise. Difficult to manage or hand off.</p></div>
+          <div class="cs-ch"><p class="cs-ch-n">Problem 04</p><p class="cs-ch-t">Market pressure</p><p class="cs-ch-d">Conversational AI was evolving fast and competitors were rising — offering customer-facing tools to create chatbots. Though technically nascent, they were eroding CogniCor's positioning.</p></div>
+        </div>
+        <p class="cs-p">The strategic decision: build a <strong>proprietary no-code platform</strong> that lets enterprise Knowledge Engineers launch intelligent digital assistants in weeks — without writing a single line of code. No more CogniCor selling DAs; a platform for customers to create and maintain their own.</p>
+        <div class="cs-pq"><p class="cs-pq-t">"The platform had been pitched to a large enterprise client before it existed. We needed to create it in 3 months. The design had to be good enough to close a $1M ARR deal."</p></div>
+      </div>
+
+      <!-- 02 My role -->
+      <div class="cs-section">
+        <p class="cs-section-label">02 — My role</p>
+        <h2 class="cs-h2">Head of experience, <em>from research to front-end</em></h2>
+        <p class="cs-p">My responsibility was to head the experience of the platform end-to-end: from the research phase through experience design to front-end development. I managed a team of 10 from my design studio — designers and developers — to launch the first version in 3 months and subsequent versions thereafter.</p>
+        <div class="cs-challenges">
+          <div class="cs-ch"><p class="cs-ch-n">Challenge 01</p><p class="cs-ch-t">Strict timelines, huge business stakes</p><p class="cs-ch-d">The idea of the platform had already been pitched to a major enterprise client. We needed to create it to the delight of the customer in exactly 3 months — which would help CogniCor win a contract of $1M in ARR.</p></div>
+          <div class="cs-ch"><p class="cs-ch-n">Challenge 02</p><p class="cs-ch-t">Design the DA experience before the platform</p><p class="cs-ch-d">The platform is used by enterprises to create DAs for their end customers. We had to first think deeply about the virtual assistant experience — what it would feel like to interact with — before designing the tools to build it.</p></div>
+        </div>
+      </div>
+
+      <!-- 03 Phase 1: Understand -->
+      <div class="cs-section">
+        <p class="cs-section-label">03 — Phase 1: Understand</p>
+        <h2 class="cs-h2">The existing tools were <em>pure engineering artefacts</em></h2>
+        <p class="cs-p">I started with system walkthroughs with the engineering team to understand the current tools used to build the digital assistant, how the system worked, and what the core modules were. What I found was sobering.</p>
+        <p class="cs-p">Multiple tools — GATE, JAPE, PROTEGE, ECLIPSE — were used for knowledge creation, natural language processing, rule creation, and training. It was an essentially technical process: without deep technical knowledge, no part of it was accessible. Interconnected data was spread across different files. Changing a single training variation required touching at least <strong>four separate files</strong>.</p>
+
+        <!-- Old toolchain visual -->
+        <div class="cs-screen">
+          <div class="cs-screen-label">Existing engineering toolchain — before the platform <span class="cs-screen-badge">Research artefact</span></div>
+          <div style="display:flex;gap:8px;padding:12px;background:var(--bg3);border-radius:3px">
+            <div style="flex:1;background:var(--rdbg);border:0.5px solid rgba(122,42,42,.15);border-radius:3px;padding:12px">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--rdtx);margin-bottom:6px;letter-spacing:.08em;text-transform:uppercase">Tool stack (pre-platform)</div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+                <div style="background:#fff;border-radius:2px;padding:8px;font-size:10px;text-align:center"><div style="font-weight:500;color:#1A1A18;margin-bottom:2px">GATE</div><div style="font-size:9px;color:var(--tx3)">NLP processing</div></div>
+                <div style="background:#fff;border-radius:2px;padding:8px;font-size:10px;text-align:center"><div style="font-weight:500;color:#1A1A18;margin-bottom:2px">JAPE</div><div style="font-size:9px;color:var(--tx3)">Rule creation</div></div>
+                <div style="background:#fff;border-radius:2px;padding:8px;font-size:10px;text-align:center"><div style="font-weight:500;color:#1A1A18;margin-bottom:2px">PROTEGE</div><div style="font-size:9px;color:var(--tx3)">Knowledge graph</div></div>
+                <div style="background:#fff;border-radius:2px;padding:8px;font-size:10px;text-align:center"><div style="font-weight:500;color:#1A1A18;margin-bottom:2px">ECLIPSE</div><div style="font-size:9px;color:var(--tx3)">Training</div></div>
+              </div>
+              <div style="font-size:9px;color:var(--rdtx);margin-top:8px;line-height:1.5">Disconnected. File-based. 4+ files to change one training variation. Engineers only.</div>
+            </div>
+            <div style="display:flex;align-items:center;font-size:20px;color:var(--tx4)">→</div>
+            <div style="flex:1;background:var(--gnbg);border:0.5px solid rgba(42,74,50,.2);border-radius:3px;padding:12px">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--gntx);margin-bottom:6px;letter-spacing:.08em;text-transform:uppercase">CogniCor platform (target)</div>
+              <div style="display:grid;grid-template-columns:1fr;gap:6px">
+                <div style="background:#fff;border-radius:2px;padding:8px"><div style="font-size:10px;font-weight:500;color:#1A1A18;margin-bottom:2px">Knowledge</div><div style="font-size:9px;color:var(--tx3)">Single-page tree, document ingestion</div></div>
+                <div style="background:#fff;border-radius:2px;padding:8px"><div style="font-size:10px;font-weight:500;color:#1A1A18;margin-bottom:2px">Workflow</div><div style="font-size:9px;color:var(--tx3)">Visual canvas, triggers + actions</div></div>
+                <div style="background:#fff;border-radius:2px;padding:8px"><div style="font-size:10px;font-weight:500;color:#1A1A18;margin-bottom:2px">Train · Test · Launch</div><div style="font-size:9px;color:var(--tx3)">Guided, no-code, self-service</div></div>
+              </div>
+              <div style="font-size:9px;color:var(--gntx);margin-top:8px;line-height:1.5">One platform. GUI-first. No code required. Customer-operated.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04 SME interviews -->
+      <div class="cs-section">
+        <p class="cs-section-label">04 — SME interviews &amp; competitor analysis</p>
+        <h2 class="cs-h2">CogniCor's real differentiator: <em>knowledge, not intents</em></h2>
+        <p class="cs-p">Interviews with the founders and subject matter experts revealed the key technological differentiator. Most competitors started with <em>intents</em> — predefined question patterns the chatbot would respond to. CogniCor used a <strong>knowledge graph</strong>: structured enterprise knowledge where Concepts had Properties with Values.</p>
+        <p class="cs-p">A simple example: the Concept "Audi Q5" has Properties like Colour, Price, Engine Capacity. Each has Values (red, $45k, 2L). If a user asks "what's the engine capacity of the Audi Q5?", the system finds the Concept, maps to the Property, and returns the Value. This approach scales to handle complex wealth management scenarios and huge datasets in ways intent-based systems cannot.</p>
+        <p class="cs-p">I also evaluated 9 competitors for UX and key differentiators. Major findings: drag-and-drop tools, pre-built templates, and attractive dashboards were table-stakes. The gap CogniCor could win on was knowledge management depth and enterprise data integration.</p>
+      </div>
+
+      <!-- 05 Persona -->
+      <div class="cs-section">
+        <p class="cs-section-label">05 — Persona</p>
+        <h2 class="cs-h2">Ebna — the Knowledge Engineer</h2>
+        <p class="cs-p">Each DA project is a co-creation with the customer. After understanding requirements, CogniCor trains a set of users at the client organisation and assists them in building and maintaining the project. We called this user a <strong>Knowledge Engineer</strong>.</p>
+
+        <div style="background:var(--bg2);border-radius:3px;padding:20px;margin:16px 0">
+          <div style="display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start">
+            <div style="width:52px;height:52px;border-radius:50%;background:#E8E3DA;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--tx4);flex-shrink:0">EB</div>
+            <div>
+              <div style="font-size:15px;font-weight:500;color:#1A1A18;margin-bottom:2px">Ebna, 28</div>
+              <div style="font-size:12px;color:var(--tx3);margin-bottom:10px">Digital Innovations team · Top US wealth management firm</div>
+              <p style="font-size:12px;color:var(--tx2);line-height:1.65;margin-bottom:12px">Assigned as lead to create the DA using the CogniCor platform as part of a digital transformation of the service centre. Good understanding of business use cases from the Service centre team. Good domain knowledge and language proficiency. Works with a lot of data.</p>
+              <div class="ann-grid">
+                <div>
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--oc);margin-bottom:5px;letter-spacing:.08em;text-transform:uppercase">Goals</div>
+                  <div style="font-size:11px;color:var(--tx2);line-height:1.6">Create a successful DA for customer service agents. Reduce manual training time by making the DA a companion for agents.</div>
+                </div>
+                <div>
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--rdtx);margin-bottom:5px;letter-spacing:.08em;text-transform:uppercase">Pain points</div>
+                  <div style="font-size:11px;color:var(--tx2);line-height:1.6">Enterprise knowledge is spread across 1,000s of documents. Starting from scratch for every project is extremely time-consuming.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="cs-p">Ebna needed: automation where possible, collaborative editing, quick test-and-debug cycles, version management, and a no-code or low-code solution. She was the person who had to use this platform every day — and if it required engineering knowledge, she'd be stuck.</p>
+      </div>
+
+      <!-- 06 Phase 2: Define -->
+      <div class="cs-section">
+        <p class="cs-section-label">06 — Phase 2: Define</p>
+        <h2 class="cs-h2">6 key features, <em>driven by customer impact</em></h2>
+        <p class="cs-p">After synthesising all research, interviews, and workshop data, I ran several brainstorming sessions with stakeholders to arrive at 6 key platform features — strictly prioritised by impact on customers:</p>
+
+        <div class="cs-flow">
+          <div class="cs-flow-step"><p class="cs-flow-step-n">01</p><p class="cs-flow-step-t">Interactive GUI</p></div>
+          <span class="cs-flow-arrow">→</span>
+          <div class="cs-flow-step"><p class="cs-flow-step-n">02</p><p class="cs-flow-step-t">Pre-built templates</p></div>
+          <span class="cs-flow-arrow">→</span>
+          <div class="cs-flow-step"><p class="cs-flow-step-n">03</p><p class="cs-flow-step-t">Doc ingestion</p></div>
+          <span class="cs-flow-arrow">→</span>
+          <div class="cs-flow-step"><p class="cs-flow-step-n">04</p><p class="cs-flow-step-t">Team collaboration</p></div>
+          <span class="cs-flow-arrow">→</span>
+          <div class="cs-flow-step"><p class="cs-flow-step-n">05</p><p class="cs-flow-step-t">Build workflows</p></div>
+          <span class="cs-flow-arrow">→</span>
+          <div class="cs-flow-step"><p class="cs-flow-step-n">06</p><p class="cs-flow-step-t">Knowledge mgmt</p></div>
+        </div>
+
+        <p class="cs-p">In the interest of the 3-month timeline, we focused the beta on two modules: <strong>Knowledge</strong> and <strong>Workflow</strong> — the most critical for the enterprise client's use case. Everything else was scheduled for subsequent releases with a compelling roadmap.</p>
+        <p class="cs-p">The macro user journey we designed: <em>Create or import knowledge → Train → Test → Launch → Analyse</em>. Knowledge was the hard one. If we could get that right, the rest would follow.</p>
+      </div>
+
+      <!-- 07 Knowledge base -->
+      <div class="cs-section">
+        <p class="cs-section-label">07 — Knowledge base</p>
+        <h2 class="cs-h2">One rename that changed everything: <em>Knowledge Graph → Knowledge Base</em></h2>
+        <p class="cs-p">The first decision was naming. "Knowledge Graph" was the engineering term. "Concepts" was the engineering abstraction. For a Knowledge Engineer like Ebna, these words carried no meaning — or worse, the wrong meaning.</p>
+        <p class="cs-p">We renamed "Knowledge Graph" to <strong>Knowledge Base</strong> and "Concepts" to <strong>Topics</strong>. A simple change, but it shifted the mental model from a technical artefact to something domain experts already worked with every day.</p>
+        <p class="cs-p">Topics are represented as a hierarchical tree. The critical design insight: <strong>everything should happen on a single page</strong>. All sub-tasks — adding features, mapping documents, creating sub-topics — happen in panels that open within the context of the tree, not in new pages. Users always maintain awareness of the full knowledge structure while doing focused work.</p>
+
+        <!-- Knowledge base mockup -->
+        <div class="cs-screen">
+          <div class="cs-screen-label">Knowledge base — single-page tree, right-panel model <span class="cs-screen-badge">Core module</span></div>
+          <div class="wf">
+            <div class="wf-nav">
+              <span class="wf-nav-item act">Knowledge</span>
+              <span class="wf-nav-item">Workflow</span>
+              <span class="wf-nav-item">Train</span>
+              <span class="wf-nav-item">Test</span>
+              <span class="wf-nav-item">Launch</span>
+            </div>
+            <div class="wf-sidebar-layout">
+              <div class="wf-sidebar">
+                <div style="font-size:9px;color:var(--tx4);margin-bottom:8px;letter-spacing:.08em;text-transform:uppercase;font-family:'JetBrains Mono',monospace">Knowledge Base</div>
+                <div class="wf-sidebar-item act">📁 Wealth Management</div>
+                <div class="wf-sidebar-item" style="padding-left:20px">📂 Products</div>
+                <div class="wf-sidebar-item" style="padding-left:32px">→ Mutual Funds</div>
+                <div class="wf-sidebar-item" style="padding-left:32px;color:var(--oc)">→ ETFs ←selected</div>
+                <div class="wf-sidebar-item" style="padding-left:32px">→ Bonds</div>
+                <div class="wf-sidebar-item" style="padding-left:20px">📂 Compliance</div>
+                <div class="wf-sidebar-item" style="padding-left:20px">📂 Client Services</div>
+                <div style="margin-top:8px;display:flex;gap:4px">
+                  <div class="wf-btn sec" style="font-size:8px;padding:0 6px;height:20px">+ Topic</div>
+                  <div class="wf-btn sec" style="font-size:8px;padding:0 6px;height:20px">+ Sub</div>
+                </div>
+              </div>
+              <div class="wf-main">
+                <div style="font-size:11px;font-weight:500;color:#1A1A18;margin-bottom:8px">ETFs <span style="font-size:9px;font-weight:400;color:var(--tx3);margin-left:6px">Wealth Management → Products</span></div>
+                <div style="font-size:10px;font-weight:500;color:#1A1A18;margin-bottom:6px">Features (4)</div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:6px">
+                  <div style="border:0.5px solid var(--br);border-radius:2px;padding:5px 7px;font-size:9px"><span style="color:var(--tx4)">Definition: </span><span style="color:#1A1A18">A basket of securities</span></div>
+                  <div style="border:0.5px solid var(--br);border-radius:2px;padding:5px 7px;font-size:9px"><span style="color:var(--tx4)">Min. investment: </span><span style="color:#1A1A18">$1 (fractional)</span></div>
+                  <div style="border:0.5px solid var(--br);border-radius:2px;padding:5px 7px;font-size:9px"><span style="color:var(--tx4)">Risk level: </span><span style="color:#1A1A18">Varies by type</span></div>
+                  <div style="border:0.5px solid var(--br);border-radius:2px;padding:5px 7px;font-size:9px;display:flex;align-items:center;gap:4px;cursor:pointer;color:var(--oc)">+ Add feature</div>
+                </div>
+                <div style="font-size:10px;font-weight:500;color:#1A1A18;margin-bottom:4px">Documents (2)</div>
+                <div style="font-size:9px;color:var(--tx3);display:flex;gap:8px"><span>📄 ETF_Overview.pdf</span><span>📄 ETF_Compliance.docx</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ann-grid">
+          <div class="ann-item"><span class="ann-num">①</span><span class="ann-text"><strong>Tree always visible</strong> — no navigation away from the master view when doing sub-tasks. Spatial orientation maintained throughout.</span></div>
+          <div class="ann-item"><span class="ann-num">②</span><span class="ann-text"><strong>Right panel opens in context</strong> — topic selected → details appear right. Drag to reorder topics replaces the old "move topic" button.</span></div>
+          <div class="ann-item"><span class="ann-num">③</span><span class="ann-text"><strong>Contextual guidance</strong> — enough information on each screen to carry out tasks without training. Not overwhelming; just enough.</span></div>
+          <div class="ann-item"><span class="ann-num">④</span><span class="ann-text"><strong>Topic→Feature→Document links</strong> are shown inline — critical for Knowledge Engineers to trace where information came from.</span></div>
+        </div>
+      </div>
+
+      <!-- 08 Document ingestion -->
+      <div class="cs-section">
+        <p class="cs-section-label">08 — Document ingestion</p>
+        <h2 class="cs-h2">The biggest pain: <em>1,000s of documents, no way to load them</em></h2>
+        <p class="cs-p">The greatest pain point Ebna and every Knowledge Engineer faced: enterprise knowledge was spread across thousands of PDFs, Word docs, PowerPoints, user manuals — and there was no way to get it into the platform without manual re-entry. Starting from scratch for every project was extraordinarily time-consuming.</p>
+        <p class="cs-p">I worked closely with the R&D team — who were simultaneously building the NLP annotation capability — to design a two-mode document ingestion tool. The key question we had to answer first: <em>can this be fully automated?</em></p>
+        <p class="cs-p">The answer was nuanced. Full automation had accuracy risks that varied with document quality. But <strong>semi-automation was viable</strong>: the system could annotate titles as Features and paragraphs as Values automatically, then let the Knowledge Engineer verify, correct, and ingest. Two modes emerged:</p>
+
+        <div class="cs-compare">
+          <div class="cs-comp-before" style="background:var(--ocbg);border-color:rgba(196,184,154,.3)">
+            <p class="cs-comp-label" style="color:var(--octx)">Phase 1 — Manual annotation</p>
+            <p class="cs-comp-p">User uploads document → draws and annotates content by selecting regions → maps selected content to Knowledge Graph objects (Properties/Values) → ingests. Full control, higher effort.</p>
+          </div>
+          <div class="cs-comp-after">
+            <p class="cs-comp-label">Phase 2 — Semi-automatic</p>
+            <p class="cs-comp-p">User uploads document → system automatically annotates titles as Features, paragraphs as Values → user inspects recommendations, accepts/rejects/modifies → ingests. Dramatically faster with human verification.</p>
+          </div>
+        </div>
+
+        <!-- Doc ingestion mockup -->
+        <div class="cs-screen">
+          <div class="cs-screen-label">Document ingestion — semi-automatic annotation mode <span class="cs-screen-badge">Phase 2</span></div>
+          <div class="wf">
+            <div style="display:grid;grid-template-columns:1fr 220px;height:230px">
+              <div style="padding:12px;overflow:auto;position:relative">
+                <div style="font-size:10px;font-weight:500;color:#1A1A18;margin-bottom:8px;display:flex;justify-content:space-between">
+                  <span>ETF_Overview.pdf — Page 2 of 8</span>
+                  <span style="font-size:9px;color:var(--oc);cursor:pointer">Manual mode</span>
+                </div>
+                <!-- Simulated doc page with annotations -->
+                <div style="border:0.5px solid var(--br);border-radius:3px;padding:10px;background:#fafafa;font-size:9px;line-height:1.7;position:relative">
+                  <div style="background:var(--gnbg);border-left:2px solid var(--gntx);padding:3px 6px;margin-bottom:6px;cursor:pointer">
+                    <span style="font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--gntx)">FEATURE AUTO-DETECTED</span>
+                    <div style="font-size:10px;font-weight:500;color:#1A1A18;margin-top:1px">What is an ETF?</div>
+                  </div>
+                  <div style="background:rgba(196,184,154,0.2);border-left:2px solid var(--oc);padding:3px 6px;margin-bottom:8px;cursor:pointer">
+                    <span style="font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--octx)">VALUE AUTO-DETECTED</span>
+                    <div style="color:var(--tx2);margin-top:1px">An Exchange-Traded Fund (ETF) is a type of investment fund that tracks an index, sector, commodity, or other asset and can be purchased or sold on a stock exchange.</div>
+                  </div>
+                  <div style="background:var(--gnbg);border-left:2px solid var(--gntx);padding:3px 6px;margin-bottom:6px;cursor:pointer">
+                    <span style="font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--gntx)">FEATURE AUTO-DETECTED</span>
+                    <div style="font-size:10px;font-weight:500;color:#1A1A18;margin-top:1px">Minimum investment</div>
+                  </div>
+                  <div style="color:var(--tx2);padding-left:6px;font-size:9px">ETFs can be purchased for as little as one share, making them accessible to investors of all sizes...</div>
+                </div>
+              </div>
+              <div style="background:var(--bg2);border-left:0.5px solid var(--br);padding:12px;overflow:auto">
+                <div style="font-size:10px;font-weight:500;color:#1A1A18;margin-bottom:8px">Detected features <span style="font-size:9px;font-weight:400;color:var(--tx3)">(3 found)</span></div>
+                <div style="border:0.5px solid var(--gnbg);background:#fff;border-radius:2px;padding:7px;margin-bottom:5px;font-size:9px">
+                  <div style="display:flex;justify-content:space-between;margin-bottom:2px"><span style="font-weight:500">What is an ETF?</span><span class="wf-badge green">Accept</span></div>
+                  <div style="color:var(--tx3)">Maps to: ETFs → Definition</div>
+                </div>
+                <div style="border:0.5px solid var(--gnbg);background:#fff;border-radius:2px;padding:7px;margin-bottom:5px;font-size:9px">
+                  <div style="display:flex;justify-content:space-between;margin-bottom:2px"><span style="font-weight:500">Minimum investment</span><span class="wf-badge green">Accept</span></div>
+                  <div style="color:var(--tx3)">Maps to: ETFs → Min. investment</div>
+                </div>
+                <div style="border:0.5px solid var(--rdbg);background:#fff;border-radius:2px;padding:7px;margin-bottom:8px;font-size:9px">
+                  <div style="display:flex;justify-content:space-between;margin-bottom:2px"><span style="font-weight:500">Risk levels</span><span class="pill-r pill" style="font-size:7px;padding:2px 5px">Review</span></div>
+                  <div style="color:var(--tx3)">Low confidence — verify mapping</div>
+                </div>
+                <div class="wf-btn primary" style="width:100%;justify-content:center;font-size:9px">Ingest accepted (2)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cs-pq"><p class="cs-pq-t">"The document ingestion feature solved a great pain of our users and the entire experience was handsomely endorsed."</p></div>
+      </div>
+
+      <!-- 09 Workflow builder -->
+      <div class="cs-section">
+        <p class="cs-section-label">09 — Workflow builder</p>
+        <h2 class="cs-h2">A canvas that <em>stays legible as it grows</em></h2>
+        <p class="cs-p">Workflows automate business processes within a conversation — passing information between users according to predefined rules. A Knowledge Engineer needed to build these without writing code. Three components:</p>
+        <div class="cs-challenges">
+          <div class="cs-ch"><p class="cs-ch-n">Trigger</p><p class="cs-ch-t">Invokes the flow</p><p class="cs-ch-d">Any Feature in the Feature Library. When a user's query matches the feature (and optionally a topic), the workflow fires. Represented as a red block on the canvas.</p></div>
+          <div class="cs-ch"><p class="cs-ch-n">Action</p><p class="cs-ch-t">The assistant's questions</p><p class="cs-ch-d">Any message the VA needs to ask to advance the flow. Supports conditional branching — e.g., if age &lt; 18, go to Action A; else go to Action B.</p></div>
+          <div class="cs-ch"><p class="cs-ch-n">Script</p><p class="cs-ch-t">Custom code box</p><p class="cs-ch-d">Developers can add custom code for calculations or API connections. An escape hatch for complex cases that GUI alone can't handle.</p></div>
+        </div>
+        <p class="cs-p">The key design decision: when a node is selected or created, the canvas <strong>splits 60/40</strong> — the flow graph stays visible at 60%, and a configuration panel opens at 40% on the right. This is consistent with the Knowledge Base design and ensures users never lose spatial context while configuring details.</p>
+
+        <!-- Workflow canvas mockup -->
+        <div class="cs-screen">
+          <div class="cs-screen-label">Workflow builder — split-canvas model, action configuration <span class="cs-screen-badge">Core module</span></div>
+          <div class="wf" style="height:230px;overflow:hidden">
+            <div class="wf-nav">
+              <span class="wf-nav-item">Knowledge</span>
+              <span class="wf-nav-item act">Workflow</span>
+              <span class="wf-nav-item">Train</span>
+            </div>
+            <div style="display:grid;grid-template-columns:3fr 2fr;height:calc(100% - 40px)">
+              <!-- Canvas -->
+              <div style="padding:12px;background:#fafafa;border-right:0.5px solid var(--br);overflow:auto;position:relative">
+                <div style="font-size:9px;color:var(--tx4);margin-bottom:10px">Drag to connect nodes · Click to configure</div>
+                <!-- Trigger -->
+                <div style="display:inline-block;background:#fde8e8;border:1px solid rgba(122,42,42,.3);border-radius:4px;padding:8px 12px;margin-bottom:0;text-align:center;font-size:10px;cursor:pointer;position:absolute;left:30px;top:40px">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--rdtx);margin-bottom:2px">TRIGGER</div>
+                  <div style="font-weight:500;color:#1A1A18">Asset Allocation Query</div>
+                </div>
+                <!-- Arrow down -->
+                <div style="position:absolute;left:78px;top:95px;font-size:14px;color:var(--tx4)">↓</div>
+                <!-- Action selected -->
+                <div style="display:inline-block;background:#E8F0FE;border:1.5px solid #4A6CF7;border-radius:4px;padding:8px 12px;text-align:center;font-size:10px;cursor:pointer;position:absolute;left:30px;top:114px">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:7px;color:#4A6CF7;margin-bottom:2px">ACTION ← editing</div>
+                  <div style="font-weight:500;color:#1A1A18">Ask: Risk tolerance?</div>
+                </div>
+                <!-- Branch arrows -->
+                <div style="position:absolute;left:50px;top:170px;font-size:9px;color:var(--tx4);display:flex;gap:40px">
+                  <span>↙ Conservative</span>
+                  <span>↘ Aggressive</span>
+                </div>
+                <div style="position:absolute;left:20px;top:188px;background:var(--gnbg);border:0.5px solid rgba(42,74,50,.2);border-radius:4px;padding:6px 10px;font-size:9px">
+                  <div style="font-weight:500;color:#1A1A18">Show safe funds</div>
+                </div>
+                <div style="position:absolute;left:120px;top:188px;background:var(--gnbg);border:0.5px solid rgba(42,74,50,.2);border-radius:4px;padding:6px 10px;font-size:9px">
+                  <div style="font-weight:500;color:#1A1A18">Show growth funds</div>
+                </div>
+                <div class="wf-btn sec" style="position:absolute;bottom:10px;right:10px;font-size:9px">+ Node</div>
+              </div>
+              <!-- Config panel -->
+              <div style="padding:12px;overflow:auto">
+                <div style="font-size:10px;font-weight:500;color:#1A1A18;margin-bottom:10px">Configure action</div>
+                <div style="font-size:9px;color:var(--tx4);margin-bottom:6px">Message from assistant</div>
+                <div style="border:0.5px solid var(--oc);border-radius:3px;padding:8px;font-size:9px;color:#1A1A18;background:#fff;margin-bottom:10px">What is your risk tolerance? Choose one: Conservative / Moderate / Aggressive</div>
+                <div style="font-size:9px;color:var(--tx4);margin-bottom:6px">Validate user input</div>
+                <div class="wf-input" style="margin-bottom:8px"><span class="wf-input-label">Input type</span><div class="wf-input-val" style="background:#E8F4EE;width:70px"></div></div>
+                <div style="font-size:9px;color:var(--tx4);margin-bottom:6px">Branch conditions</div>
+                <div style="border:0.5px solid var(--br);border-radius:3px;padding:7px;font-size:9px;margin-bottom:4px"><span style="color:var(--tx4)">If input = </span><span style="font-weight:500">Conservative</span><span style="color:var(--tx4)"> → </span><span style="color:var(--oc)">Action: Show safe funds</span></div>
+                <div style="border:0.5px solid var(--br);border-radius:3px;padding:7px;font-size:9px"><span style="color:var(--tx4)">If input = </span><span style="font-weight:500">Aggressive</span><span style="color:var(--tx4)"> → </span><span style="color:var(--oc)">Action: Show growth funds</span></div>
+                <div class="wf-btn sec" style="margin-top:8px;font-size:8px">+ Add condition</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10 Outcome -->
+      <div class="cs-section">
+        <p class="cs-section-label">10 — Outcome</p>
+        <h2 class="cs-h2">Beta delivered. <em>Deal closed. Studio acqui-hired.</em></h2>
+        <p class="cs-p">We delivered the beta on time — participating with the client at every stage of design and development. The end result was appreciated and received excellent feedback. With a strong product and compelling roadmap, CogniCor closed a <strong>$1M ARR deal</strong> with one of the largest wealth management enterprises in the US — serving over 40,000 financial advisors. The immediate use case was Customer Support; Advisor clients were next on the roadmap.</p>
+        <p class="cs-p">The leadership team was impressed enough with the design and development quality that they acqui-hired the entire studio. <strong>All 10 members</strong> of my team joined on a 3-year contract. I moved into a leadership role shaping the product roadmap across multiple use cases.</p>
+
+        <div class="cs-stats">
+          <div class="cs-stat"><p class="cs-stat-n">$1M</p><p class="cs-stat-l">ARR deal closed with US wealth management firm (40,000+ advisors)</p></div>
+          <div class="cs-stat"><p class="cs-stat-n">3 months</p><p class="cs-stat-l">From blank canvas to beta delivery, on time</p></div>
+          <div class="cs-stat"><p class="cs-stat-n">10 people</p><p class="cs-stat-l">Entire studio acqui-hired on a 3-year contract</p></div>
+        </div>
+
+        <h3 class="cs-h3">What I learned</h3>
+        <div class="ann-grid">
+          <div class="ann-item"><span class="ann-num">→</span><span class="ann-text"><strong>Go visual, always.</strong> When a new feature came up in a stakeholder meeting, a quick prototype cut the decision-making cycle from days to hours. Collective feedback needs something to react to.</span></div>
+          <div class="ann-item"><span class="ann-num">→</span><span class="ann-text"><strong>Content is design.</strong> Wealth management DA responses are far longer than conventional chatbot replies. We had to redesign the knowledge editor to give more real estate for formatting — a gap that only emerged through real usage.</span></div>
+          <div class="ann-item"><span class="ann-num">→</span><span class="ann-text"><strong>Teach, don't assume.</strong> Even trained users needed contextual guidance on each screen. The best onboarding is embedded in the product itself, not in a separate training session.</span></div>
+          <div class="ann-item"><span class="ann-num">→</span><span class="ann-text"><strong>Naming is strategy.</strong> "Knowledge Base" instead of "Knowledge Graph." "Topics" instead of "Concepts." These two changes shifted the entire mental model for non-technical users.</span></div>
+        </div>
+
+        <div class="cs-fq">
+          <p class="cs-fq-t">"The platform has moulded and shaped up a lot since the beta version, addressing diverse use-cases and customer needs. This is the tip of the iceberg."</p>
+          <p class="cs-fq-a">— Paul Emil Johnson, reflecting on the CogniCor platform years later</p>
+        </div>
+      </div>
+
+      <div class="cs-nav"><span class="cs-nav-b" onclick="nav('cs1')">← Zenskar</span><span class="cs-nav-b" onclick="nav('work')">All work →</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- WRITING -->
+<div class="page" id="pg-writing">
+  <div class="wr-wrap">
+    <p class="h-eye">Writing</p>
+    <h1 class="wr-h1">Ideas on design,<br><em>founders &amp; AI.</em></h1>
+    <p class="wr-sub">For Series A founders and senior designers who want to think more like founders. One essay every 4–6 weeks.</p>
+    <div class="wr-row" onclick="nav('b1')" style="cursor:pointer"><div><p class="wr-t">The first 90 days as a founding designer at a B2B AI startup</p><p class="wr-d">Week-by-week: what to prioritise, what to skip, how to earn trust fast.</p></div><div class="wr-r"><span class="pill pill-g">For founders</span><span class="wr-date">May 2025</span><span class="wr-min">8 min</span></div></div>
+    <div class="wr-row" onclick="nav('b2')" style="cursor:pointer"><div><p class="wr-t">Why your Series A doesn't need a design system yet</p><p class="wr-d">The case against premature systemisation — and what to build instead.</p></div><div class="wr-r"><span class="pill pill-g">For founders</span><span class="wr-date">Mar 2025</span><span class="wr-min">6 min</span></div></div>
+    <div class="wr-row" onclick="nav('b3')" style="cursor:pointer"><div><p class="wr-t">The human-in-the-loop: when to let an AI agent run</p><p class="wr-d">A confidence × reversibility framework for agentic UX.</p></div><div class="wr-r"><span class="pill pill-o">Agentic UX</span><span class="wr-date">Jan 2025</span><span class="wr-min">5 min</span></div></div>
+    <div class="wr-row" onclick="nav('b4')" style="cursor:pointer"><div><p class="wr-t">The taste tax: why AI-generated UI kills B2B conversion</p><p class="wr-d">v0 and Lovable are everywhere. Here's the hidden cost.</p></div><div class="wr-r"><span class="pill pill-g">For founders</span><span class="wr-date">Nov 2024</span><span class="wr-min">7 min</span></div></div>
+    <div class="wr-row" onclick="nav('b5')" style="cursor:pointer"><div><p class="wr-t">Designing for AI agents that act on your money</p><p class="wr-d">Lessons from shipping agentic UX in high-stakes financial products.</p></div><div class="wr-r"><span class="pill pill-o">Agentic UX</span><span class="wr-date">Sep 2024</span><span class="wr-min">9 min</span></div></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="page" id="pg-about">
+  <div class="ab-wrap">
+    <div class="ab-left">
+      <div class="ab-photo">Photo</div>
+      <p class="ab-name">Paul Emil Johnson</p>
+      <p class="ab-role">Lead &amp; Founding Product Designer<br>B2B SaaS · Conversational AI · Fintech</p>
+      <p class="ab-cl">Contact</p>
+      <div class="ab-ci"><span style="font-size:12px;color:var(--tx4)">✉</span><span>paul@paulemiljohnson.com</span></div>
+      <div class="ab-ci"><span style="font-size:12px;color:var(--tx4)">in</span><span>paulemiljohnson</span></div>
+      <div class="ab-ci"><span style="font-size:12px;color:var(--tx4)">🎙</span><span>Behind The Screens podcast</span></div>
+    </div>
+    <div class="ab-right">
+      <p class="ab-lede">"I work with entrepreneurs and technology teams to co-build products — from conception of an idea to market readiness."</p>
+      <p class="ab-p">10+ years designing enterprise products in fintech, conversational AI, and B2B SaaS. Started my career winning a 99designs contest for a Danish e-commerce company — which turned into my first job in Denmark. Founded <strong>Awesome Daddies Interactive</strong> in 2014, grew it to 15 people, and was acqui-hired by CogniCor Technologies in 2018.</p>
+      <p class="ab-p">At CogniCor I became Head of Product Design, building conversational AI for US wealth management enterprises. Currently founding designer at <strong>Zenskar</strong>, an AI-native billing SaaS backed by Bessemer Venture Partners.</p>
+      <p class="ab-p" style="margin-bottom:24px">I host the "Behind The Screens" design podcast, was recognised at the <strong>Achievers X Awards 2023</strong>, and am a <strong>LottieFiles Evangelist</strong> representing India.</p>
+      <p class="sl">Experience</p>
+      <div style="margin-bottom:24px">
+        <div class="ab-tl"><span class="ab-tl-y">2024–now</span><div><p class="ab-tl-r">Founding Product Designer</p><p class="ab-tl-c"><span class="ab-dot"></span>Zenskar · AI-native billing · NYC / India</p></div></div>
+        <div class="ab-tl"><span class="ab-tl-y">2018–2024</span><div><p class="ab-tl-r">Head of Product Design</p><p class="ab-tl-c"><span class="ab-dot"></span>CogniCor Technologies · Spain &amp; USA</p></div></div>
+        <div class="ab-tl"><span class="ab-tl-y">2014–2018</span><div><p class="ab-tl-r">Founder &amp; Lead Designer</p><p class="ab-tl-c"><span class="ab-dot"></span>Awesome Daddies Interactive · India / Denmark</p></div></div>
+        <div class="ab-tl"><span class="ab-tl-y">2013</span><div><p class="ab-tl-r">Design Consultant</p><p class="ab-tl-c"><span class="ab-dot"></span>Socialware A/S · Denmark</p></div></div>
+        <div class="ab-tl"><span class="ab-tl-y">2011–12</span><div><p class="ab-tl-r">UI/UX Designer</p><p class="ab-tl-c"><span class="ab-dot"></span>Eurostores Group A/S · Denmark</p></div></div>
+      </div>
+      <p class="sl">Principles</p>
+      <div class="ab-pr-grid">
+        <div class="ab-pr"><p class="ab-pr-n">01</p><p class="ab-pr-t">Most B2B SaaS products are 70% the same wireframe and 30% taste. I work on the 30%.</p></div>
+        <div class="ab-pr"><p class="ab-pr-n">02</p><p class="ab-pr-t">Speed is a design decision. Shipping something real beats perfecting something hypothetical.</p></div>
+        <div class="ab-pr"><p class="ab-pr-n">03</p><p class="ab-pr-t">Going visual always accelerates decisions. A quick prototype beats a long meeting.</p></div>
+        <div class="ab-pr"><p class="ab-pr-n">04</p><p class="ab-pr-t">Design systems at Series A are often a way to feel productive instead of shipping.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NOW -->
+<div class="page" id="pg-now">
+  <div class="now-wrap">
+    <p class="h-eye">Now</p>
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.5rem);font-weight:400;line-height:1.1;letter-spacing:-.02em;color:var(--tx);margin-bottom:32px">What I'm focused on <em style="font-style:italic;color:var(--octx)">right now.</em></h1>
+    <div class="now-b"><p class="now-bl">Building</p><p class="now-bt"><strong>At Zenskar</strong> — designing billing UX for AI-native quote-to-cash. Complex pricing models, customer hierarchies, multi-currency. Pushing Figma and Claude into every corner of my design workflow.</p></div>
+    <div class="now-b"><p class="now-bl">Podcasting</p><p class="now-bt"><strong>Behind The Screens</strong> — recording new episodes when the kids are asleep. Real stories from product designers in B2B SaaS.</p></div>
+    <div class="now-b"><p class="now-bl">Writing</p><p class="now-bt"><strong>Working on</strong> a long essay on agentic UX patterns — the confidence × reversibility framework I've applied across financial products.</p></div>
+    <div class="now-b"><p class="now-bl">Reading</p><p class="now-bt"><strong>Thinking in Systems</strong> by Donella Meadows. The Design of Everyday Things for the fourth time.</p></div>
+    <div class="now-b"><p class="now-bl">Life</p><p class="now-bt"><strong>Expecting our third child.</strong> Kerala, India. Life is full — which makes the work matter more.</p></div>
+    <div style="border-top:0.5px solid var(--br);padding-top:20px;margin-top:6px">
+      <span class="pill pill-o">Last updated May 2025</span>
+      <p style="font-size:11px;color:var(--tx4);margin-top:10px;line-height:1.6">Updated when things actually change. Inspired by Derek Sivers' /now movement.</p>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="pg-index">
+
+  <div class="wi-hero">
+    <p class="wi-eyebrow">Writing</p>
+    <h1 class="wi-title">Ideas on design,<br><em>founders &amp; AI.</em></h1>
+    <p class="wi-sub">I write for Series A founders and senior designers who want to think like founders. One essay every 4–6 weeks, drawn from real projects.</p>
+  </div>
+
+  <div class="wi-featured" onclick="nav('b1')" style="cursor:pointer">
+    <div>
+      <p class="wif-badge">Most shared · May 2025</p>
+      <p class="wif-title">The first 90 days as a founding designer at a B2B AI startup</p>
+      <p class="wif-desc">A tactical week-by-week account of what to prioritise, what to ignore, and how to earn the founder's trust before you've shipped anything. Drawn from two founding-designer engagements.</p>
+      <div class="wif-meta"><span>8 min read</span><span>For founders</span><span>Process</span></div>
+    </div>
+    <span class="wif-cta">Read →</span>
+  </div>
+
+  <div class="wi-list">
+    <div class="wi-year">2025</div>
+    <div class="wi-row" onclick="nav('b1')">
+      <div><p class="wir-title">The first 90 days as a founding designer at a B2B AI startup</p><p class="wir-desc">Week-by-week: what to prioritise, what to skip, how to earn trust fast.</p></div>
+      <div class="wir-right"><span class="wir-tag tag-g">For founders</span><span class="wir-date">May 2025</span><span class="wir-min">8 min</span><span class="wir-arrow">→</span></div>
+    </div>
+    <div class="wi-row" onclick="nav('b2')">
+      <div><p class="wir-title">Why your Series A doesn't need a design system yet</p><p class="wir-desc">The case against premature systemisation — and what to build instead.</p></div>
+      <div class="wir-right"><span class="wir-tag tag-g">For founders</span><span class="wir-date">Mar 2025</span><span class="wir-min">6 min</span><span class="wir-arrow">→</span></div>
+    </div>
+    <div class="wi-row" onclick="nav('b3')">
+      <div><p class="wir-title">The human-in-the-loop: when to let an AI agent run</p><p class="wir-desc">A confidence × reversibility framework for agentic UX that users actually trust.</p></div>
+      <div class="wir-right"><span class="wir-tag tag-o">Agentic UX</span><span class="wir-date">Jan 2025</span><span class="wir-min">7 min</span><span class="wir-arrow">→</span></div>
+    </div>
+    <div class="wi-year">2024</div>
+    <div class="wi-row" onclick="nav('b4')">
+      <div><p class="wir-title">The taste tax: why AI-generated UI is costing B2B founders</p><p class="wir-desc">v0 and Lovable are everywhere. Here's the hidden cost founders are paying.</p></div>
+      <div class="wir-right"><span class="wir-tag tag-g">For founders</span><span class="wir-date">Nov 2024</span><span class="wir-min">7 min</span><span class="wir-arrow">→</span></div>
+    </div>
+    <div class="wi-row" onclick="nav('b5')">
+      <div><p class="wir-title">Naming is strategy: what I learned redesigning CogniCor's platform</p><p class="wir-desc">Two word changes shifted the entire mental model for 40,000 wealth advisors.</p></div>
+      <div class="wir-right"><span class="wir-tag tag-b">Craft</span><span class="wir-date">Sep 2024</span><span class="wir-min">5 min</span><span class="wir-arrow">→</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     BLOG 1 — 90 Days Founding Designer
+═══════════════════════════════════ -->
+<div class="page" id="pg-b1">
+  <div class="prog-bar" id="prog1" style="width:0%"></div>
+  <span class="art-back" onclick="nav('writing-index')">← writing</span>
+
+  <div class="art-wrap">
+    <main class="art-main">
+      <div class="art-header">
+        <div class="art-tags"><span class="wir-tag tag-g">For founders</span><span class="wir-tag tag-o">Process</span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--tx4);padding:3px 8px">8 min read</span></div>
+        <h1 class="art-h1">The first 90 days as a <em>founding designer</em> at a B2B AI startup</h1>
+        <p class="art-lede">Nobody warns you that the hardest part of being a founding designer isn't the design. It's knowing what to design, in what order, at what fidelity — while the founders are still figuring out what they're building.</p>
+        <div class="art-byline"><div class="art-av">PE</div><span class="art-by-text">Paul Emil Johnson · May 12, 2025 · 8 min</span></div>
+      </div>
+
+      <div class="art-body">
+        <p class="art-p drop">I've done this twice. Once at CogniCor Technologies, where I joined before the product existed and had 3 months to design a platform that would close a $1M ARR deal. And again at Zenskar, where as founding designer I had to rebuild the entire product experience while 40 demos a week were happening and enterprise pilots were losing confidence.</p>
+        <p class="art-p">The contexts were very different. The pattern was identical.</p>
+        <p class="art-p">Founding design roles are a specific category of hard. You're not walking into a mature product org with runbooks and Figma libraries and a head of design who can orient you. You're walking into a team that's moving at the speed of a Series A raise, where the founders have opinions about everything, where the engineers are brilliant and opinionated, and where "ship it fast" is the operating mode.</p>
+        <p class="art-p">Here's what I learned — what to do, what to avoid, and the mental model that held it together.</p>
+
+        <h2 class="art-h2">The 90-day structure</h2>
+
+        <div class="art-diagram">
+          <div class="art-diagram-label">The 90-day founding designer framework <span class="art-diagram-badge">Paul Emil Johnson, 2025</span></div>
+          <div class="art-diagram-body">
+            <div class="timeline">
+              <div class="tl-item">
+                <div class="tl-label">Days 1–30</div>
+                <div class="tl-content">
+                  <p class="tl-title">Make the problem legible</p>
+                  <p class="tl-desc">Don't open Figma. Map the mental models, translate founder assumptions into visual artifacts the team can argue about, and identify the one user who will tell you the truth.</p>
+                </div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-label">Days 31–60</div>
+                <div class="tl-content">
+                  <p class="tl-title">Ship something real</p>
+                  <p class="tl-desc">Not polished. Not complete. Real enough that a customer can react to it. This is your credibility moment with the founders — and with yourself.</p>
+                </div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-label">Days 61–90</div>
+                <div class="tl-content">
+                  <p class="tl-title">Build for the team you'll become</p>
+                  <p class="tl-desc">A decision log, a lean token system, a one-page "this is how we design here" doc. Not a full design system — not yet. But enough that a second designer could join without losing the thread.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="art-h2">Days 1–30: <em>make the problem legible</em></h2>
+        <p class="art-p">Here's the mistake I see founding designers make in the first month: they open Figma. They feel pressure to ship, to show velocity, to justify the hire. So they start designing screens before they understand the system.</p>
+        <p class="art-p">Don't. Your most valuable contribution in the first 30 days is translation. Take the founder's mental model — scattered across Notion docs, investor decks, and late-night Slack messages — and convert it into something spatial and arguable. A user journey. A system diagram. A conceptual model that shows how the product's nouns relate to each other.</p>
+        <p class="art-p">At Zenskar, one of the first things I did was map the billing conceptual model from a user's perspective: Products contain Prices, Prices go into Contracts, Contracts generate Invoices. Four objects. Four relationships. It took four hours to draw and validate with the engineering team. But it became the foundation for every design decision that followed — what to name things, how to sequence the onboarding, what the empty states should explain.</p>
+
+        <div class="art-pq">
+          <p class="art-pq-t">"Your job in the first 30 days isn't to design. It's to make the problem legible to everyone in the room — including yourself."</p>
+        </div>
+
+        <p class="art-p"><strong>Find the user who will tell you the truth.</strong> In every product, there's one person on the customer side who will be brutally honest about what's broken. Find them in week one. Not through formal interviews — through Slack, through sitting in on a customer onboarding call, through asking the sales team who gives them the hardest time. That person is your compass for the next 90 days.</p>
+
+        <h2 class="art-h2">Days 31–60: <em>ship something real</em></h2>
+        <p class="art-p">By week five, you should have shipped something. Not a polished feature. Not a complete flow. Something real enough that a customer can use it and react to it.</p>
+        <p class="art-p">This matters because of trust. Founding designers are expensive hires at a stage where every hire has to prove itself. The founders need to see that you can translate insight into output. The engineers need to see that your designs are buildable. The customers need to see that the product is getting better.</p>
+
+        <div class="art-diagram">
+          <div class="art-diagram-label">The founding designer's triage framework <span class="art-diagram-badge">Decision tool</span></div>
+          <div class="art-diagram-body">
+            <div class="matrix">
+              <div class="matrix-cell q2">
+                <p class="matrix-label">High confidence + Reversible</p>
+                <p class="matrix-title">Ship now</p>
+                <p class="matrix-desc">Low risk to change later. Don't overthink it. Good enough beats perfect.</p>
+              </div>
+              <div class="matrix-cell q1">
+                <p class="matrix-label">Low confidence + High stakes</p>
+                <p class="matrix-title">Prototype first</p>
+                <p class="matrix-desc">Build a clickable test before committing engineering time. Get a customer reaction.</p>
+              </div>
+              <div class="matrix-cell q1" style="background:#FFF8F0">
+                <p class="matrix-label">Uncertain + Founder assumption</p>
+                <p class="matrix-title">Debate openly</p>
+                <p class="matrix-desc">Don't design around it. Bring it to a team session and make it explicit. This is where future pivots hide.</p>
+              </div>
+              <div class="matrix-cell" style="background:var(--bg3)">
+                <p class="matrix-label">No customer signal yet</p>
+                <p class="matrix-title">Defer</p>
+                <p class="matrix-desc">Ruthlessly deprioritise anything that doesn't serve the three users you actually have right now.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="art-p">The trap in this period is building what's impressive rather than what's needed. Founders love features. Sales teams love features. You need to be the person who asks: <em>what's the smallest version of this that would tell us if we're right?</em></p>
+
+        <h2 class="art-h2">Days 61–90: <em>build for the team you'll become</em></h2>
+        <p class="art-p">By month three, you should be thinking about your successor — even if you'll be at this company for five years. What would a second designer need to understand to join without losing the thread of what you've built?</p>
+        <p class="art-p">This isn't about building a design system. At Series A, a full design system is usually premature — I'll make that case in another essay. But you do need three artefacts:</p>
+
+        <ul class="art-list">
+          <li><span class="art-list-n">01</span><div><strong>A decision log.</strong> A running document (Notion works, Figma works) that captures the major design decisions you made and why. Not a beautiful record — a searchable one. When a founder asks "why did we design it this way?" six months from now, you need to be able to answer.</div></li>
+          <li><span class="art-list-n">02</span><div><strong>A lean token system.</strong> Colours, spacing scale, type scale, border radii — documented and applied consistently. Not a full component library. Just the foundation that makes the next 10 screens feel intentional rather than improvised.</div></li>
+          <li><span class="art-list-n">03</span><div><strong>A one-page design principles doc.</strong> Three to five principles specific to this product, this user, this context. Not "we value simplicity" — that means nothing. "We assume users understand their business but not our system. Every screen must meet them where they are." That means something.</div></li>
+        </ul>
+
+        <h2 class="art-h2">The thing nobody tells you</h2>
+        <p class="art-p">Founding design is a leadership role disguised as a craft role. You are not just making screens. You are making decisions about what problems matter, which users to prioritise, how much complexity to expose, what to defer. These are business decisions that happen to manifest in pixels.</p>
+        <p class="art-p">The founders hired you because they believe design can be a competitive advantage. Your job is to prove them right — not by making things beautiful, but by making things legible, trustworthy, and fast to evolve. Beauty is a consequence of that, not a starting point.</p>
+
+        <div class="art-stats">
+          <div class="art-stat"><span class="art-stat-n">3 months</span><span class="art-stat-l">From blank canvas to beta at CogniCor — the product that closed $1M ARR</span></div>
+          <div class="art-stat"><span class="art-stat-n">4 hrs</span><span class="art-stat-l">To draw the conceptual model that shaped all of Zenskar's product decisions</span></div>
+          <div class="art-stat"><span class="art-stat-n">2×</span><span class="art-stat-l">This pattern held across both founding designer engagements</span></div>
+        </div>
+
+        <div class="callout">
+          <p class="callout-label">The one thing to remember</p>
+          <p class="callout-text">Founding design is not about being the best designer in the room. It's about making everyone else in the room better at making product decisions. That's a completely different skill — and it starts in the first 30 days, before you've drawn a single screen.</p>
+        </div>
+      </div>
+
+      <div class="art-nav">
+        <div class="art-nav-b" onclick="nav('writing-index')">← All writing</div>
+        <div class="art-nav-b" onclick="nav('b2')"><div><small>Next essay</small>Why your Series A doesn't need a design system yet →</div></div>
+      </div>
+    </main>
+
+    <aside class="art-side">
+      <p class="side-label">On this page</p>
+      <div class="side-item a"><span class="side-num">—</span>The 90-day structure</div>
+      <div class="side-item"><span class="side-num">—</span>Days 1–30: legibility</div>
+      <div class="side-item"><span class="side-num">—</span>Days 31–60: ship</div>
+      <div class="side-item"><span class="side-num">—</span>Days 61–90: the team</div>
+      <div class="side-item"><span class="side-num">—</span>The thing nobody tells you</div>
+      <div class="side-related">
+        <p class="side-label">Related</p>
+        <div class="side-rel" onclick="nav('b2')">Why your Series A doesn't need a design system yet<p class="side-rel-meta">Mar 2025 · 6 min</p></div>
+        <div class="side-rel" onclick="nav('b4')">The taste tax: AI-generated UI costs<p class="side-rel-meta">Nov 2024 · 7 min</p></div>
+        <div class="side-rel" onclick="nav('b5')">Naming is strategy<p class="side-rel-meta">Sep 2024 · 5 min</p></div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     BLOG 2 — No design system at Series A
+═══════════════════════════════════ -->
+<div class="page" id="pg-b2">
+  <div class="prog-bar" style="width:0%"></div>
+  <span class="art-back" onclick="nav('writing-index')">← writing</span>
+
+  <div class="art-wrap">
+    <main class="art-main">
+      <div class="art-header">
+        <div class="art-tags"><span class="wir-tag tag-g">For founders</span><span class="wir-tag tag-b">Systems</span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--tx4);padding:3px 8px">6 min read</span></div>
+        <h1 class="art-h1">Why your Series A <em>doesn't need</em> a design system yet</h1>
+        <p class="art-lede">The case against premature systemisation — and what to build instead when you have one designer, ten engineers, and a product that's still figuring out what it wants to be.</p>
+        <div class="art-byline"><div class="art-av">PE</div><span class="art-by-text">Paul Emil Johnson · March 18, 2025 · 6 min</span></div>
+      </div>
+
+      <div class="art-body">
+        <p class="art-p drop">There's a conversation that happens at almost every Series A I've been part of. The founding designer (often me) is six weeks in. The product is starting to feel real. Someone — usually a well-intentioned engineer or a new PM — says: <em>"We should build a design system."</em></p>
+        <p class="art-p">Everyone nods. It sounds right. Design systems are what professional product organisations have. They produce consistency and speed. They're what mature teams do.</p>
+        <p class="art-p">Here's what they don't tell you: at Series A, building a full design system is usually the right thing to do at the wrong time. It's a way to feel productive while avoiding the harder, messier work of figuring out what your product actually is.</p>
+
+        <div class="art-pq">
+          <p class="art-pq-t">"A design system is a compression of decisions. You can only compress decisions that have already been made. At Series A, most of your decisions haven't been made yet."</p>
+        </div>
+
+        <h2 class="art-h2">What a design system actually is</h2>
+        <p class="art-p">A design system is a codification of product decisions. It says: we've decided that buttons look like this, that spacing follows this scale, that these are the colours that represent our brand, that error states have this structure. These decisions have been made, tested with users, and are stable enough to systematise.</p>
+        <p class="art-p">The problem at Series A: you haven't made most of those decisions yet. You're still learning what your users need. Your core flows are changing every two weeks. The feature that seemed central six months ago might be deprecated next quarter. When you build a design system around decisions that aren't settled, you build debt — components that need to be rearchitected, tokens that need to be renamed, patterns that need to be deprecated.</p>
+
+        <div class="art-diagram">
+          <div class="art-diagram-label">Design system readiness: when to build what</div>
+          <div class="art-diagram-body">
+            <div class="fw-grid">
+              <div class="fw-cell warn">
+                <p class="fw-cell-n">Series A (1–3 engineers)</p>
+                <p class="fw-cell-t">What you actually need</p>
+                <p class="fw-cell-d">Colour tokens · Spacing scale · Type scale · One component per pattern (button, input, card). Written in Notion or a Figma style guide. No Storybook. No documentation site.</p>
+              </div>
+              <div class="fw-cell">
+                <p class="fw-cell-n">Series B (5–15 engineers)</p>
+                <p class="fw-cell-t">Component library</p>
+                <p class="fw-cell-d">Figma component library with variants · Basic Storybook · Shared spacing and colour tokens committed to the repo. One person owns it part-time.</p>
+              </div>
+              <div class="fw-cell">
+                <p class="fw-cell-n">Series C (15+ engineers)</p>
+                <p class="fw-cell-t">Design system team</p>
+                <p class="fw-cell-d">Dedicated design system designer or team · Contribution model · Usage tracking · Accessibility audit · Documentation site.</p>
+              </div>
+              <div class="fw-cell highlight">
+                <p class="fw-cell-n">The right question at Series A</p>
+                <p class="fw-cell-t">What prevents inconsistency today?</p>
+                <p class="fw-cell-d">Usually: colours, type, and spacing. Fix those. Nothing else is worth systematising until your product has stayed stable for 90+ days.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="art-h2">What to build instead</h2>
+        <p class="art-p">At Series A, you need three things, and only three things, from a systems perspective:</p>
+
+        <ul class="art-list">
+          <li><span class="art-list-n">01</span><div><strong>A decision log.</strong> This is not a design system. It's a searchable record of why you made the design decisions you made. When the PM asks "why is the contract summary page structured this way?" six months from now, you need to be able to answer. A Notion doc, a Figma page, a GitHub README — whatever your team reads.</div></li>
+          <li><span class="art-list-n">02</span><div><strong>A lean token system.</strong> Colours, spacing, type scale, border radii. Committed to the codebase as CSS variables or design tokens. Not 400 components — four files. This is the minimum that prevents your product from looking different on every page. Do this in week two and never look back.</div></li>
+          <li><span class="art-list-n">03</span><div><strong>A single reusable component per recurring pattern.</strong> You have a button. You have a text input. You have a card. Build one version of each, well. Give it states (default, hover, focus, error, disabled). That's it. Resist the urge to build variants for situations that don't exist yet.</div></li>
+        </ul>
+
+        <h2 class="art-h2">The hidden cost of building too early</h2>
+        <p class="art-p">When Zenskar was still finding its product-market fit, there was a temptation to stabilise the visual layer before the experience layer was settled. We had enterprise customers in dedicated Slack channels giving feedback every day. The product was changing fast.</p>
+        <p class="art-p">If we'd built a component library in that period, we would have had to rebuild 60% of it six months later. Every abstracted component becomes a maintenance burden when the underlying design assumption changes. At the pace of a Series A, that's almost every component.</p>
+
+        <div class="art-pq">
+          <p class="art-pq-t">"Every component you build is a promise to maintain it. At Series A, you can only afford promises you're certain you'll keep."</p>
+        </div>
+
+        <h2 class="art-h2">The signal that you're ready</h2>
+        <p class="art-p">There's one reliable signal that you're ready to invest in a real design system: a second designer has joined and you're spending more than two hours a week explaining "how we do things here." That friction — onboarding friction, inconsistency friction, communication friction — is the cost that a design system actually solves.</p>
+        <p class="art-p">Until that cost exists, a design system is a solution to a problem you don't have yet. And at Series A, the most expensive mistake you can make is building solutions to problems you don't have.</p>
+
+        <div class="callout">
+          <p class="callout-label">The practical rule</p>
+          <p class="callout-text">Don't build a component until the same pattern has appeared in your product three times and stayed stable for 60 days. Before that, copy-paste and accept the inconsistency. The inconsistency is honest; a component library that needs to be deprecated isn't.</p>
+        </div>
+
+        <h2 class="art-h2">One more thing</h2>
+        <p class="art-p">Design systems are seductive because they feel productive. Organising components, writing documentation, setting up Storybook — it's satisfying work. It looks like progress. It's measurable. You can show it to the founders and say "look what we built."</p>
+        <p class="art-p">But the founding designer's job is not to look busy. It's to reduce the distance between insight and output — for every team in the company. Sometimes that means building infrastructure. Most of the time, at Series A, it means shipping faster with less.</p>
+      </div>
+
+      <div class="art-nav">
+        <div class="art-nav-b" onclick="nav('b1')">← 90 days as a founding designer</div>
+        <div class="art-nav-b" onclick="nav('b3')"><div><small>Next essay</small>The human-in-the-loop →</div></div>
+      </div>
+    </main>
+
+    <aside class="art-side">
+      <p class="side-label">On this page</p>
+      <div class="side-item a"><span class="side-num">—</span>What a design system is</div>
+      <div class="side-item"><span class="side-num">—</span>What to build instead</div>
+      <div class="side-item"><span class="side-num">—</span>The hidden cost</div>
+      <div class="side-item"><span class="side-num">—</span>The signal you're ready</div>
+      <div class="side-related">
+        <p class="side-label">Related</p>
+        <div class="side-rel" onclick="nav('b1')">The first 90 days as a founding designer<p class="side-rel-meta">May 2025 · 8 min</p></div>
+        <div class="side-rel" onclick="nav('b4')">The taste tax<p class="side-rel-meta">Nov 2024 · 7 min</p></div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     BLOG 3 — Human in the loop
+═══════════════════════════════════ -->
+<div class="page" id="pg-b3">
+  <div class="prog-bar" style="width:0%"></div>
+  <span class="art-back" onclick="nav('writing-index')">← writing</span>
+
+  <div class="art-wrap">
+    <main class="art-main">
+      <div class="art-header">
+        <div class="art-tags"><span class="wir-tag tag-o">Agentic UX</span><span class="wir-tag tag-b">AI</span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--tx4);padding:3px 8px">7 min read</span></div>
+        <h1 class="art-h1">The human-in-the-loop: <em>when to let an AI agent run</em></h1>
+        <p class="art-lede">AI agents that act on your behalf are everywhere. Billing systems, outreach automation, revenue ops. But when does a human need to be in that loop — and when is the loop itself the problem?</p>
+        <div class="art-byline"><div class="art-av">PE</div><span class="art-by-text">Paul Emil Johnson · January 9, 2025 · 7 min</span></div>
+      </div>
+
+      <div class="art-body">
+        <p class="art-p drop">I've designed three products in the last four years where an AI agent performs consequential actions on behalf of a human. A billing platform that generates invoices for thousands of dollars. A revenue automation tool that contacts high-value prospects. A conversational AI that answers questions from 40,000 financial advisors.</p>
+        <p class="art-p">All three faced the same design question: <strong>where does the human need to be?</strong> Not as a philosophical question — as a product question. Which actions require human approval? Which can run fully automatically? Which need a review step, and what should that review look like?</p>
+        <p class="art-p">After designing these systems, I have a framework. It's not complicated. It has two dimensions and four quadrants. But before I share it, let me share the failure mode it exists to prevent.</p>
+
+        <h2 class="art-h2">The failure mode: <em>reviewing everything, trusting nothing</em></h2>
+        <p class="art-p">The instinct when building agentic systems — in both founders and designers — is to put a human in the loop for everything. Approve every invoice. Review every outreach email. Confirm every recommendation. It feels safe. It feels responsible. It feels like you're not abandoning the user.</p>
+        <p class="art-p">But this instinct creates a product that's slower than doing it manually. The agent becomes theatre — it does the work, then makes you do the work again. The user loses trust in the system not because the agent is wrong, but because being asked to approve every decision signals that the system isn't confident. And if the system isn't confident, why is the user using it?</p>
+
+        <div class="art-pq">
+          <p class="art-pq-t">"An approval flow that users rubber-stamp is not a safety mechanism. It's a liability shift. And it teaches users to stop paying attention to the thing that matters."</p>
+        </div>
+
+        <p class="art-p">The opposite failure is equally real: let the agent run everything automatically and watch one wrong action destroy six months of trust. An agent that sends an incorrect invoice to an enterprise customer without human review, or contacts a prospect with wrong information, or recommends the wrong financial product — these are not UX problems. They're business problems.</p>
+
+        <h2 class="art-h2">The confidence × reversibility framework</h2>
+        <p class="art-p">After thinking through these systems carefully, I've landed on two dimensions that determine where a human needs to be in the loop.</p>
+        <p class="art-p"><strong>Confidence</strong> — how certain is the system that its action is correct? This comes from the quality of the input data, the complexity of the decision, and the track record of the model on this type of task.</p>
+        <p class="art-p"><strong>Reversibility</strong> — if the action is wrong, how hard is it to undo? A sent email is hard to unsend. An approved invoice that's been paid is very hard to reverse. A recommendation that's been ignored is trivially reversible.</p>
+
+        <div class="art-diagram">
+          <div class="art-diagram-label">The confidence × reversibility framework for agentic UX <span class="art-diagram-badge">Paul Emil Johnson, 2025</span></div>
+          <div class="art-diagram-body">
+            <div style="margin-bottom:10px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--tx4)"><span>← Low reversibility</span><span>High reversibility →</span></div>
+            <div class="matrix">
+              <div class="matrix-cell" style="background:#fde8e8">
+                <p class="matrix-label">High confidence + Irreversible</p>
+                <p class="matrix-title">⚠ Review with context</p>
+                <p class="matrix-desc">Show the agent's work. Give the user everything they need to make a fast, informed decision. One click to approve — not a form.</p>
+              </div>
+              <div class="matrix-cell q2">
+                <p class="matrix-label">High confidence + Reversible</p>
+                <p class="matrix-title">✓ Run automatically</p>
+                <p class="matrix-desc">Let the agent act. Show what happened in an audit log. Trust earns autonomy. This is where you prove the product's value.</p>
+              </div>
+              <div class="matrix-cell" style="background:#2A2A26;color:#fff">
+                <p class="matrix-label" style="color:#9B9B93">Low confidence + Irreversible</p>
+                <p class="matrix-title" style="color:#fff">✗ Don't automate</p>
+                <p class="matrix-desc" style="color:#9B9B93">Not everything should be automated. Some decisions require human judgment — and pretending otherwise is a product mistake, not an AI limitation.</p>
+              </div>
+              <div class="matrix-cell q1">
+                <p class="matrix-label">Low confidence + Reversible</p>
+                <p class="matrix-title">~ Suggest, don't act</p>
+                <p class="matrix-desc">Propose a recommendation. Make it easy to accept or dismiss. Log the outcome to improve future confidence.</p>
+              </div>
+            </div>
+            <div style="margin-top:10px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--tx4)"><span>↑ High confidence</span><span>Low confidence ↓</span></div>
+          </div>
+        </div>
+
+        <h2 class="art-h2">How this plays out in practice: Zenskar invoicing</h2>
+        <p class="art-p">At Zenskar, the core product goal is automatic invoice generation. A billing system that generates invoices for enterprise customers with complex pricing models — tiered usage, mid-contract price changes, multiple products per contract.</p>
+        <p class="art-p">We applied this framework to every step of the invoice lifecycle:</p>
+
+        <ul class="art-list">
+          <li><span class="art-list-n">Auto</span><div><strong>Generating upcoming invoices based on billing cadence.</strong> High confidence (pure calculation), reversible (upcoming, not yet approved). The system runs automatically, shows upcoming invoices in a list, user can inspect at any time.</div></li>
+          <li><span class="art-list-n">Review</span><div><strong>Moving invoices from upcoming to draft.</strong> At the draft stage, users can edit the quantity for metered products, verify line items, approve, and send. The review is lightweight — one screen, one decision.</div></li>
+          <li><span class="art-list-n">Human</span><div><strong>First contract for a new customer.</strong> The first time a user publishes a contract, we surface a prominent CTA to visit the invoices section. This isn't automated — it's a prompted review moment to build confidence in the system.</div></li>
+        </ul>
+
+        <h2 class="art-h2">Designing the review experience</h2>
+        <p class="art-p">When a human does need to review an agent's output, the design of that review moment determines whether the loop is a safeguard or a burden. Three principles:</p>
+
+        <ul class="art-list">
+          <li><span class="art-list-n">01</span><div><strong>Show the agent's reasoning, not just its output.</strong> If a billing system generated an invoice for $2,300 instead of the expected $2,000, show me why. Which line item changed? Which usage metric caused the difference? The review screen should make the delta legible, not just show the final number.</div></li>
+          <li><span class="art-list-n">02</span><div><strong>Make approval a one-action decision.</strong> If reviewing the agent's output requires opening five tabs, the user will start rubber-stamping. The review moment should surface everything needed for a confident decision in one screen.</div></li>
+          <li><span class="art-list-n">03</span><div><strong>Log outcomes to improve confidence over time.</strong> Every approval or rejection is a signal. Build a feedback loop that lets the system learn which actions it can handle autonomously and which ones still need a human. This is how the quadrant shifts — actions start in "Suggest" and graduate to "Auto" as confidence builds.</div></li>
+        </ul>
+
+        <div class="callout">
+          <p class="callout-label">The principle underneath everything</p>
+          <p class="callout-text">The goal of agentic UX is not to remove humans from decisions. It's to put humans in front of only the decisions that require human judgment — and to make those decisions as fast and well-informed as possible. Everything else is friction the agent should absorb.</p>
+        </div>
+
+        <h2 class="art-h2">Where this is going</h2>
+        <p class="art-p">As AI models improve, the confidence dimension shifts right across most tasks. Actions that require human review today will be automatable in 18 months. The framework doesn't change — but the position of each task within it does.</p>
+        <p class="art-p">The implication for designers: build your review flows to be gracefully degradable. When confidence improves, the review step should be easy to remove without a redesign. The audit log replaces the approval screen. The exception triggers the review, not the rule.</p>
+        <p class="art-p">Design for the world where the agent is right 99% of the time — and make the 1% visible, actionable, and fast.</p>
+      </div>
+
+      <div class="art-nav">
+        <div class="art-nav-b" onclick="nav('b2')">← Design systems at Series A</div>
+        <div class="art-nav-b" onclick="nav('b4')"><div><small>Next essay</small>The taste tax →</div></div>
+      </div>
+    </main>
+
+    <aside class="art-side">
+      <p class="side-label">On this page</p>
+      <div class="side-item a"><span class="side-num">—</span>The failure mode</div>
+      <div class="side-item"><span class="side-num">—</span>The framework</div>
+      <div class="side-item"><span class="side-num">—</span>Zenskar in practice</div>
+      <div class="side-item"><span class="side-num">—</span>Designing the review</div>
+      <div class="side-item"><span class="side-num">—</span>Where this is going</div>
+      <div class="side-related">
+        <p class="side-label">Related</p>
+        <div class="side-rel" onclick="nav('b1')">The first 90 days<p class="side-rel-meta">May 2025 · 8 min</p></div>
+        <div class="side-rel" onclick="nav('b4')">The taste tax<p class="side-rel-meta">Nov 2024 · 7 min</p></div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     BLOG 4 — The Taste Tax
+═══════════════════════════════════ -->
+<div class="page" id="pg-b4">
+  <div class="prog-bar" style="width:0%"></div>
+  <span class="art-back" onclick="nav('writing-index')">← writing</span>
+
+  <div class="art-wrap">
+    <main class="art-main">
+      <div class="art-header">
+        <div class="art-tags"><span class="wir-tag tag-g">For founders</span><span class="wir-tag tag-o">Design</span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--tx4);padding:3px 8px">7 min read</span></div>
+        <h1 class="art-h1">The taste tax: why <em>AI-generated UI</em> is costing B2B founders</h1>
+        <p class="art-lede">Tools like v0, Lovable, and Bolt are making it possible to ship a B2B product without a designer. But there's a cost that doesn't show up in your Figma bill — and it shows up six months later, in conversion and retention numbers.</p>
+        <div class="art-byline"><div class="art-av">PE</div><span class="art-by-text">Paul Emil Johnson · November 14, 2024 · 7 min</span></div>
+      </div>
+
+      <div class="art-body">
+        <p class="art-p drop">I want to be precise about what I'm arguing here, because the naive version of this argument is wrong and the nuanced version matters.</p>
+        <p class="art-p">I'm not saying AI-generated UI is bad. I'm saying there's a hidden cost that most founders haven't priced in — and that cost is paid at the exact moment you can least afford it: when a qualified enterprise prospect opens your product for the first time and forms an opinion in eleven seconds.</p>
+        <p class="art-p">I'm calling it the taste tax. Here's what it is, how it accumulates, and when it matters.</p>
+
+        <h2 class="art-h2">What taste actually is in B2B product</h2>
+        <p class="art-p">Taste, in the context of B2B product design, is not aesthetics. It's not about whether your colours are nice or your typography is elegant. Those things matter, but they're downstream of something more fundamental.</p>
+        <p class="art-p">Taste is <strong>the quality of decisions about what to show, what to hide, what to name, and where to put things</strong>. It's the judgment that says: this piece of information will confuse a first-time user, so it belongs in a tooltip, not in the main view. Or: this workflow has seven steps but only three of them matter to 90% of users, so the other four should be in an advanced mode.</p>
+        <p class="art-p">AI-generated UI makes excellent decisions about the surface: the correct colour for a button, an appropriate spacing scale, a sensible component hierarchy. What it cannot do — yet — is make good decisions about the substance: what information a specific user needs at a specific moment in their journey with a specific product.</p>
+
+        <div class="art-pq">
+          <p class="art-pq-t">"Most B2B SaaS products are 70% the same wireframe and 30% taste. The 70% is solved. The 30% is why your users are confused."</p>
+        </div>
+
+        <h2 class="art-h2">Where AI-generated UI excels</h2>
+        <p class="art-p">Let's be honest about what these tools do well, because dismissing them entirely would be as wrong as over-relying on them.</p>
+
+        <div class="art-diagram">
+          <div class="art-diagram-label">When to use AI-generated UI vs. human design judgment</div>
+          <div class="art-diagram-body">
+            <div class="fw-grid">
+              <div class="fw-cell highlight">
+                <p class="fw-cell-n">AI-generated UI excels at</p>
+                <p class="fw-cell-t">Structure and scaffold</p>
+                <p class="fw-cell-d">Generating the standard 80% of any B2B interface: navigation, list views, detail panels, form layouts, data tables. Fast, correct, good enough to test with.</p>
+              </div>
+              <div class="fw-cell highlight">
+                <p class="fw-cell-n">AI-generated UI excels at</p>
+                <p class="fw-cell-t">Speed to first version</p>
+                <p class="fw-cell-d">Getting from idea to testable prototype in hours, not days. For founders doing early customer discovery, this is enormously valuable. Don't hire a designer to build what you're throwing away anyway.</p>
+              </div>
+              <div class="fw-cell warn">
+                <p class="fw-cell-n">Human judgment required</p>
+                <p class="fw-cell-t">Conceptual model design</p>
+                <p class="fw-cell-d">Deciding what your product's nouns and verbs are. What a "contract" means in your system vs. in the user's head. The naming decisions that determine whether a new user can orient in 10 minutes or 10 days.</p>
+              </div>
+              <div class="fw-cell warn">
+                <p class="fw-cell-n">Human judgment required</p>
+                <p class="fw-cell-t">Progressive disclosure</p>
+                <p class="fw-cell-d">Deciding what to show a new user vs. an expert user. What belongs in an empty state, what belongs in a tooltip, what belongs in the docs. This is pure judgment — and AI gets it wrong at the margins.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="art-h2">How the taste tax accumulates</h2>
+        <p class="art-p">The taste tax isn't a single moment. It accumulates across a hundred small decisions that compound over time. Here's the mechanism:</p>
+
+        <ul class="art-list">
+          <li><span class="art-list-n">01</span><div><strong>The wrong naming decision.</strong> You call it a "Knowledge Graph" because that's what the engineering team calls it. Users call it a database. The mismatch costs you five minutes of every onboarding call for the next two years. At CogniCor, we renamed it to "Knowledge Base" — two words, massive impact.</div></li>
+          <li><span class="art-list-n">02</span><div><strong>The missing feedback loop.</strong> Users build a complex billing contract but can't see what invoices it will produce until after they publish. Every pilot user hits this and loses confidence. The fix — a live timeline — is not obvious to an AI generating UI from a brief. It requires understanding the user's anxiety about making a mistake.</div></li>
+          <li><span class="art-list-n">03</span><div><strong>The empty state that just empties.</strong> An AI-generated empty state says "No products yet" with a button to create one. A designed empty state explains what a product is, why you need it, and what happens after you create it. The difference is not visual — it's editorial. It requires knowing what the user doesn't know.</div></li>
+        </ul>
+
+        <p class="art-p">None of these are dramatic failures. None of them will crash your server or cause data loss. They will each add 5–10 minutes to every customer onboarding. They will each increase your support ticket volume by 3–8%. They will each reduce the percentage of pilots that convert to paid by 1–2 percentage points.</p>
+        <p class="art-p">And 1–2 points on pilot conversion, compounded across 40 demos a week, over a year, is not a rounding error. It's the difference between a successful Series B and a difficult one.</p>
+
+        <h2 class="art-h2">When the taste tax doesn't matter</h2>
+        <p class="art-p">I want to be honest about when this argument doesn't apply — because pretending otherwise would be paternalistic.</p>
+        <p class="art-p">If you are pre-PMF, doing customer discovery, iterating on positioning — use every AI tool at your disposal. Speed is the only thing that matters. The interface is a vehicle for learning, not a product in itself. Ship, learn, throw away, repeat.</p>
+        <p class="art-p">If you are a consumer product where the interface <em>is</em> the product — social, media, entertainment — taste is everything from day one. Get a designer immediately.</p>
+        <p class="art-p">If you are a B2B product with 10+ paying customers, a clear ICP, and a product that you're iterating on rather than replacing — this is when the taste tax starts being real. This is when you should hire your first designer, and hire them the way you'd hire your first engineer: not for execution, but for judgment.</p>
+
+        <div class="callout">
+          <p class="callout-label">The practical rule for founders</p>
+          <p class="callout-text">Use AI tools to build what you're going to throw away. Hire a designer to build what you're going to keep. The distinction between those two categories is the most important product decision you'll make in year two.</p>
+        </div>
+
+        <h2 class="art-h2">What good taste actually looks like</h2>
+        <p class="art-p">The irony of the taste tax is that good taste is often invisible. When you experience it, you don't notice it — you just move through the product without friction. The invoice timeline at Zenskar that updates in real time as you configure a contract: users don't notice the design, they just feel confident. The Knowledge Base tree that stays visible while you edit a topic: users don't notice the layout, they just don't get lost.</p>
+        <p class="art-p">Taste is the absence of unnecessary confusion. AI can generate interfaces. It takes human judgment to know which parts of the interface are creating confusion that shouldn't be there.</p>
+      </div>
+
+      <div class="art-nav">
+        <div class="art-nav-b" onclick="nav('b3')">← Human-in-the-loop</div>
+        <div class="art-nav-b" onclick="nav('b5')"><div><small>Next essay</small>Naming is strategy →</div></div>
+      </div>
+    </main>
+
+    <aside class="art-side">
+      <p class="side-label">On this page</p>
+      <div class="side-item a"><span class="side-num">—</span>What taste is in B2B</div>
+      <div class="side-item"><span class="side-num">—</span>Where AI-UI excels</div>
+      <div class="side-item"><span class="side-num">—</span>How the tax accumulates</div>
+      <div class="side-item"><span class="side-num">—</span>When it doesn't matter</div>
+      <div class="side-item"><span class="side-num">—</span>What good taste looks like</div>
+      <div class="side-related">
+        <p class="side-label">Related</p>
+        <div class="side-rel" onclick="nav('b1')">The first 90 days<p class="side-rel-meta">May 2025 · 8 min</p></div>
+        <div class="side-rel" onclick="nav('b5')">Naming is strategy<p class="side-rel-meta">Sep 2024 · 5 min</p></div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     BLOG 5 — Naming is Strategy
+═══════════════════════════════════ -->
+<div class="page" id="pg-b5">
+  <div class="prog-bar" style="width:0%"></div>
+  <span class="art-back" onclick="nav('writing-index')">← writing</span>
+
+  <div class="art-wrap">
+    <main class="art-main">
+      <div class="art-header">
+        <div class="art-tags"><span class="wir-tag tag-b">Craft</span><span class="wir-tag tag-o">Naming</span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--tx4);padding:3px 8px">5 min read</span></div>
+        <h1 class="art-h1">Naming is strategy: <em>what I learned redesigning a conversational AI platform</em></h1>
+        <p class="art-lede">At CogniCor, two word changes shifted the entire mental model for thousands of enterprise users — and changed the trajectory of a $1M ARR product. Here's the framework I use for naming decisions in complex B2B products.</p>
+        <div class="art-byline"><div class="art-av">PE</div><span class="art-by-text">Paul Emil Johnson · September 22, 2024 · 5 min</span></div>
+      </div>
+
+      <div class="art-body">
+        <p class="art-p drop">In 2018, I started designing a no-code platform for enterprise conversational AI at CogniCor Technologies. The platform was used by Knowledge Engineers at large US wealth management firms to build and maintain digital assistants that served tens of thousands of financial advisors.</p>
+        <p class="art-p">The engineering team had built the platform on a powerful abstraction called a "Knowledge Graph" — a structured representation of enterprise knowledge where "Concepts" had "Properties" with "Values." It was technically precise and internally meaningful. It was also completely opaque to the Knowledge Engineers who needed to use it every day.</p>
+        <p class="art-p">We made two changes that transformed the product: we renamed "Knowledge Graph" to <strong>Knowledge Base</strong>, and "Concepts" to <strong>Topics</strong>.</p>
+        <p class="art-p">That's it. Two words. And those two words changed the trajectory of a product that eventually closed a $1M ARR deal.</p>
+
+        <h2 class="art-h2">Why naming matters more than you think</h2>
+        <p class="art-p">Names are not labels. In a complex B2B product, names are the user's primary navigation system for understanding what the product does and how its parts relate to each other.</p>
+        <p class="art-p">When a new user opens a product, they bring a mental model built from their work and their language. They know what a "database" is, what a "document" is, what a "category" is. They do not know what a "Knowledge Graph" is unless they have a background in information science.</p>
+        <p class="art-p">If the product's language doesn't connect to the user's mental model, two things happen: the user's confidence collapses in the first five minutes, and every subsequent experience is filtered through that initial confusion. They never feel like they belong in the product.</p>
+
+        <div class="art-pq">
+          <p class="art-pq-t">"Names are the user's map of the territory. If the names are wrong, every step they take is in the wrong direction."</p>
+        </div>
+
+        <h2 class="art-h2">The Knowledge Graph → Knowledge Base rename</h2>
+        <p class="art-p">Let me walk through the actual decision, because the reasoning matters more than the conclusion.</p>
+
+        <div class="art-diagram">
+          <div class="art-diagram-label">The naming decision — before and after</div>
+          <div class="art-diagram-body">
+            <div class="fw-grid">
+              <div class="fw-cell" style="background:#fde8e8;border-color:rgba(122,42,42,.15)">
+                <p class="fw-cell-n" style="color:#7a2a2a">Before — engineering language</p>
+                <p class="fw-cell-t">Knowledge Graph</p>
+                <p class="fw-cell-d">Accurate description of the underlying data structure. Meaningful to graph theorists and NLP engineers. Completely opaque to knowledge domain experts who are not engineers.</p>
+              </div>
+              <div class="fw-cell highlight">
+                <p class="fw-cell-n">After — user language</p>
+                <p class="fw-cell-t">Knowledge Base</p>
+                <p class="fw-cell-d">Language every knowledge worker uses every day. "Base" implies structure, without implying a specific data structure. Users understood immediately what it was and what it was for.</p>
+              </div>
+              <div class="fw-cell" style="background:#fde8e8;border-color:rgba(122,42,42,.15)">
+                <p class="fw-cell-n" style="color:#7a2a2a">Before — engineering abstraction</p>
+                <p class="fw-cell-t">Concepts</p>
+                <p class="fw-cell-d">A technical abstraction for a node in the knowledge graph. Abstract, uncommitted, feels like a philosophy seminar. Knowledge Engineers didn't know whether to create one Concept or ten for a product line.</p>
+              </div>
+              <div class="fw-cell highlight">
+                <p class="fw-cell-n">After — domain language</p>
+                <p class="fw-cell-t">Topics</p>
+                <p class="fw-cell-d">Language borrowed from the domain experts themselves. A financial advisor knows what "topics" means. Knowledge Engineers immediately understood how to organise their knowledge into Topics without instruction.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="art-p">The decision wasn't arbitrary. I spent three weeks with Knowledge Engineers, watching them try to use the platform, listening to how they described their own work. They didn't say "I need to create a Concept for mutual funds." They said "I need to add a section on mutual funds." They used words like "topics," "sections," "categories" — words from their professional language, not ours.</p>
+        <p class="art-p">The rename was an act of listening, not creativity.</p>
+
+        <h2 class="art-h2">A framework for naming decisions in complex B2B</h2>
+        <p class="art-p">After that experience, I've developed a set of tests I run for every major naming decision in a B2B product. In order:</p>
+
+        <ul class="art-list">
+          <li><span class="art-list-n">01</span><div><strong>Does the user already have a word for this?</strong> The best name is the one the user already uses in their professional life. Listen for it in interviews, in support tickets, in the way your sales team explains the product. If they're already saying a word, use it.</div></li>
+          <li><span class="art-list-n">02</span><div><strong>Does the name imply the correct action?</strong> "Knowledge Base" implies storage and retrieval. "Knowledge Graph" implies a visualisation. The correct implication determined which name to use — not which was more technically accurate.</div></li>
+          <li><span class="art-list-n">03</span><div><strong>Is it consistent with adjacent names?</strong> At Zenskar, I had to decide: is it a "Price" or a "Pricing Model" or a "Rate Plan"? The right answer was "Price" — because it's the word that sits naturally next to "Product" and "Contract." The three together form a grammatically coherent sentence the user can say out loud.</div></li>
+          <li><span class="art-list-n">04</span><div><strong>Can you explain it in one sentence without jargon?</strong> If you need two sentences with a dependent clause, the name is probably wrong. "A Topic is the structured representation of a domain entity in your knowledge graph" is a bad name. "Topics are the subjects your digital assistant knows about" is a good one.</div></li>
+          <li><span class="art-list-n">05</span><div><strong>Will it survive the product's evolution?</strong> Names that are too specific to the current implementation break when the implementation changes. "Knowledge Base" will survive CogniCor adding vector search, multi-modal support, and LLM integration. "Knowledge Graph" became misleading the moment those capabilities were added.</div></li>
+        </ul>
+
+        <h2 class="art-h2">The compounding effect</h2>
+        <p class="art-p">What made those two renames so impactful was not just the individual clarity they created. It was that they freed up the rest of the design to make sense.</p>
+        <p class="art-p">Once users understood what a Topic was, they immediately understood why the interface was organised as a tree. Once they understood the Knowledge Base as a place where knowledge lives, the concept of importing documents into it was intuitive. Once the foundational nouns made sense, the verbs — create, edit, import, publish — were obvious.</p>
+        <p class="art-p">Good naming creates a cascade of legibility. Bad naming creates a cascade of confusion that no amount of design polish can fix.</p>
+
+        <div class="art-stats">
+          <div class="art-stat"><span class="art-stat-n">2</span><span class="art-stat-l">Word changes that transformed the CogniCor platform's usability</span></div>
+          <div class="art-stat"><span class="art-stat-n">3 wks</span><span class="art-stat-l">Of user observation to find the right words — listening, not inventing</span></div>
+          <div class="art-stat"><span class="art-stat-n">$1M</span><span class="art-stat-l">ARR deal that closed on a platform users could finally navigate on their own</span></div>
+        </div>
+
+        <h2 class="art-h2">The one thing I'd do differently</h2>
+        <p class="art-p">We made the rename three months into the project, after we'd already built significant parts of the platform with the old naming. If I could do it again, I'd run the naming exercise in week one — before any screen design, before any engineering work on the interface layer.</p>
+        <p class="art-p">Naming is not a design task you do after the wireframes are done. It's a strategy task you do before the wireframes start. Get the names right, and the wireframes design themselves. Get the names wrong, and you're redesigning the wireframes forever.</p>
+
+        <div class="callout">
+          <p class="callout-label">The rule I now follow</p>
+          <p class="callout-text">Before designing any new module or feature in a complex B2B product, I spend at least one session just on naming: what are the 3–5 nouns in this feature? What are the 2–3 verbs? Can the user say a sentence that uses all of them naturally? If not, the names are wrong, and no amount of screen design will fix that.</p>
+        </div>
+      </div>
+
+      <div class="art-nav">
+        <div class="art-nav-b" onclick="nav('b4')">← The taste tax</div>
+        <div class="art-nav-b" onclick="nav('writing-index')">All writing →</div>
+      </div>
+    </main>
+
+    <aside class="art-side">
+      <p class="side-label">On this page</p>
+      <div class="side-item a"><span class="side-num">—</span>Why naming matters</div>
+      <div class="side-item"><span class="side-num">—</span>The Knowledge Base rename</div>
+      <div class="side-item"><span class="side-num">—</span>A framework for naming</div>
+      <div class="side-item"><span class="side-num">—</span>The compounding effect</div>
+      <div class="side-related">
+        <p class="side-label">Related</p>
+        <div class="side-rel" onclick="nav('b4')">The taste tax<p class="side-rel-meta">Nov 2024 · 7 min</p></div>
+        <div class="side-rel" onclick="nav('b1')">The first 90 days<p class="side-rel-meta">May 2025 · 8 min</p></div>
+        <div class="side-rel" onclick="nav('b3')">Human-in-the-loop<p class="side-rel-meta">Jan 2025 · 7 min</p></div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+
+<footer>
+  <span class="ftl">© 2025 Paul Emil Johnson</span>
+  <div class="ftr">
+    <a href="https://linkedin.com/in/paulemiljohnson" target="_blank">linkedin</a>
+    <a href="#">x.com</a>
+    <a href="#">podcast</a>
+    <a href="#">rss</a>
+  </div>
+</footer>
+</div>
+
+<script>
+const pages={
+  home:'pg-home',work:'pg-work',cs1:'pg-cs1',cs2:'pg-cs2',
+  writing:'pg-index',about:'pg-about',now:'pg-now',
+  'writing-index':'pg-index',b1:'pg-b1',b2:'pg-b2',b3:'pg-b3',b4:'pg-b4',b5:'pg-b5'
+};
+const navMap={
+  home:'home',work:'work',cs1:'work',cs2:'work',
+  writing:'writing',about:'about',now:'now',
+  'writing-index':'writing',b1:'writing',b2:'writing',b3:'writing',b4:'writing',b5:'writing'
+};
+function nav(p){
+  Object.values(pages).forEach(id=>{const el=document.getElementById(id);if(el)el.classList.toggle('on',id===pages[p])});
+  ['home','work','writing','about','now'].forEach(n=>{const el=document.getElementById('nl-'+n);if(el)el.classList.toggle('act',navMap[p]===n)});
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function toc(el){document.querySelectorAll('.cs-toc-item').forEach(i=>i.classList.remove('a'));el.classList.add('a')}
+</script>
+</body>
+</html>
