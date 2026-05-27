@@ -2573,6 +2573,7 @@
 
   // Invoice preview
   window.updateInvoice = function(){
+    if (!document.getElementById('sl-api') || !document.getElementById('sl-stor')) return;
     var q1 = +document.getElementById('sl-api').value;
     var q2 = +document.getElementById('sl-stor').value;
     document.getElementById('api-label').textContent = q1.toLocaleString() + ' min → $' + Math.round(q1 * 0.1).toLocaleString();
