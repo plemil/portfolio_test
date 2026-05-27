@@ -1,0 +1,299 @@
+/* ============================================================
+   Airtable Design System — Tokens
+   Colors, typography, spacing, radii.
+   Import this into any page you build with this design system.
+   ============================================================ */
+
+/* ----- Font loading ----------------------------------------
+   Neue Haas Grot Text and Neue Haas Grot Disp (trial OTFs)
+   ship locally in fonts/. Text covers everything 24px and below;
+   Disp covers display sizes (h1 / h2).
+   ---------------------------------------------------------- */
+@font-face {
+  font-family: "Neue Haas Grot Text";
+  src: url("fonts/neuehaasgrottext-55roman-trial.otf") format("opentype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Neue Haas Grot Text";
+  src: url("fonts/neuehaasgrottext-56italic-trial.otf") format("opentype");
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "Neue Haas Grot Text";
+  src: url("fonts/neuehaasgrottext-65medium-trial.otf") format("opentype");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Neue Haas Grot Text";
+  src: url("fonts/neuehaasgrottext-66mediumitalic-trial.otf") format("opentype");
+  font-weight: 500; font-style: italic; font-display: swap;
+}
+@font-face {
+  /* 600 used only by --type-legal — mapped to 700 (75 Bold) since
+     Haas Text doesn't ship a true SemiBold. */
+  font-family: "Neue Haas Grot Text";
+  src: url("fonts/neuehaasgrottext-75bold-trial.otf") format("opentype");
+  font-weight: 600 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Neue Haas Grot Text";
+  src: url("fonts/neuehaasgrottext-76bolditalic-trial.otf") format("opentype");
+  font-weight: 600 700; font-style: italic; font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Haas Grot Disp";
+  src: url("fonts/neuehaasgrotdisp-45light-trial.otf") format("opentype");
+  font-weight: 300; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Neue Haas Grot Disp";
+  src: url("fonts/neuehaasgrotdisp-55roman-trial.otf") format("opentype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Neue Haas Grot Disp";
+  src: url("fonts/neuehaasgrotdisp-56italic-trial.otf") format("opentype");
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "Neue Haas Grot Disp";
+  src: url("fonts/neuehaasgrotdisp-65medium-trial.otf") format("opentype");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Neue Haas Grot Disp";
+  src: url("fonts/neuehaasgrotdisp-66mediumitalic-trial.otf") format("opentype");
+  font-weight: 500; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "Neue Haas Grot Disp";
+  src: url("fonts/neuehaasgrotdisp-75bold-trial.otf") format("opentype");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+
+:root {
+  /* ===== Brand & Primary ===== */
+  --color-primary:          #181d26;  /* near-black; primary CTA bg, h1/h2 ink */
+  --color-primary-active:   #0d1218;  /* press state on primary buttons */
+
+  /* ===== Surfaces ===== */
+  --color-canvas:               #ffffff;
+  --color-surface-soft:         #f8fafc;  /* tabbed feature cards, featured pricing tier */
+  --color-surface-strong:       #e0e2e6;  /* light-gray footer CTA banner */
+  --color-surface-dark:         #181d26;  /* dark navy CTA card mid-page */
+  --color-surface-dark-elevated:#1d1f25;  /* articles hero base behind rainbow */
+  --color-hairline:             #dddddd;  /* 1px outlines, dividers */
+
+  /* ===== Text ===== */
+  --color-ink:           #181d26;  /* h1/h2 display, button text on light */
+  --color-body:          #333840;  /* default running text */
+  --color-muted:         #41454d;  /* footer links, breadcrumbs, captions */
+  --color-border-strong: #9297a0;  /* 1px outline on disabled secondary btn */
+  --color-on-primary:    #ffffff;
+  --color-on-dark:       #ffffff;
+
+  /* ===== Signature Card Surfaces ===== */
+  --color-signature-coral:   #aa2d00;  /* large brand-voltage card */
+  --color-signature-forest:  #0a2e0e;  /* deep-green demo-grid sibling */
+  --color-signature-cream:   #f5e9d4;  /* cream callout band */
+  --color-signature-peach:   #fcab79;
+  --color-signature-mint:    #a8d8c4;
+  --color-signature-yellow:  #f4d35e;
+  --color-signature-mustard: #d9a441;
+
+  /* ===== Semantic ===== */
+  --color-link:           #1b61c9;
+  --color-link-active:    #1a3866;
+  --color-info:           #254fad;
+  --color-info-border:    #458fff;
+  --color-success:        #006400;
+  --color-success-border: #39bf45;
+
+  /* Pricing sub-system ink (same as ink today; kept for sub-system isolation) */
+  --color-pricing-ink: #181d26;
+
+  /* ===== Type — Font Families ===== */
+  --font-sans: "Neue Haas Grot Text", -apple-system, BlinkMacSystemFont,
+               "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans",
+               "Droid Sans", "Helvetica Neue", sans-serif;
+  --font-display: "Neue Haas Grot Disp", "Neue Haas Grot Text", -apple-system,
+                  BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  /* Pricing sub-system: per spec, Inter Display at mid-weight 475 / 575.
+     Trial OTFs are static (no variable axis), so 475 → 500 and 575 → 500
+     fall back to Haas Disp Medium. If you ship Inter Display variable in
+     production, swap this back to "Inter Display" + var settings.        */
+  --font-pricing: "Neue Haas Grot Disp", "Neue Haas Grot Text", -apple-system,
+                  sans-serif;
+
+  /* ===== Type Scale ===== */
+  /* Display */
+  --type-display-xl-size: 48px;  --type-display-xl-weight: 500;  --type-display-xl-lh: 1.1;  --type-display-xl-ls: 0;
+  --type-display-lg-size: 40px;  --type-display-lg-weight: 400;  --type-display-lg-lh: 1.2;  --type-display-lg-ls: 0;
+  --type-display-md-size: 32px;  --type-display-md-weight: 400;  --type-display-md-lh: 1.2;  --type-display-md-ls: 0;
+
+  /* Titles */
+  --type-title-lg-size: 24px;    --type-title-lg-weight: 400;    --type-title-lg-lh: 1.35; --type-title-lg-ls: 0.12px;
+  --type-title-md-size: 20px;    --type-title-md-weight: 400;    --type-title-md-lh: 1.5;  --type-title-md-ls: 0;
+  --type-title-sm-size: 18px;    --type-title-sm-weight: 500;    --type-title-sm-lh: 1.4;  --type-title-sm-ls: 0;
+
+  /* Body / labels */
+  --type-label-md-size: 16px;    --type-label-md-weight: 500;    --type-label-md-lh: 1.4;
+  --type-button-size:   16px;    --type-button-weight:   500;    --type-button-lh:   1.4;
+  --type-body-md-size:  14px;    --type-body-md-weight:  400;    --type-body-md-lh:  1.25;
+  --type-caption-size:  14px;    --type-caption-weight:  500;    --type-caption-lh:  1.35; --type-caption-ls: 0.16px;
+  --type-legal-size:    13.12px; --type-legal-weight:    600;    --type-legal-lh:    1.2;
+
+  /* Pricing sub-system — weights collapsed to 500 (closest static to 475/575) */
+  --type-pricing-display-size:    44.8px; --type-pricing-display-weight: 500; --type-pricing-display-lh: 1.1;
+  --type-pricing-section-size:    28px;   --type-pricing-section-weight: 500; --type-pricing-section-lh: 1.2;
+  --type-pricing-card-title-size: 20px;   --type-pricing-card-title-weight: 500; --type-pricing-card-title-lh: 1.3;
+
+  /* ===== Spacing — base 4px ===== */
+  --space-xxs: 4px;
+  --space-xs:  8px;
+  --space-sm:  12px;
+  --space-md:  16px;
+  --space-lg:  24px;
+  --space-xl:  32px;
+  --space-xxl: 48px;
+  --space-section: 96px;
+
+  /* Container */
+  --container-max: 1280px;
+  --container-gutter: 48px;
+
+  /* ===== Radii ===== */
+  --radius-xs:   2px;
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   12px;
+  --radius-pill: 9999px;
+  --radius-full: 9999px;
+
+  /* ===== Elevation ===== */
+  --shadow-button-rest:  0 1px 0 rgba(27, 97, 201, 0.08), 0 2px 6px rgba(27, 97, 201, 0.10);
+  --shadow-button-focus: 0 0 0 2px rgba(69, 143, 255, 0.55);
+}
+
+/* ============================================================
+   Base + Semantic typography
+   ============================================================ */
+html, body {
+  font-family: var(--font-sans);
+  font-size: var(--type-body-md-size);
+  line-height: var(--type-body-md-lh);
+  color: var(--color-body);
+  background: var(--color-canvas);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: var(--type-display-lg-size);
+  font-weight: var(--type-display-lg-weight);
+  line-height: var(--type-display-lg-lh);
+  color: var(--color-ink);
+  letter-spacing: var(--type-display-lg-ls);
+  margin: 0;
+}
+h2 {
+  font-family: var(--font-display);
+  font-size: var(--type-display-md-size);
+  font-weight: var(--type-display-md-weight);
+  line-height: var(--type-display-md-lh);
+  color: var(--color-ink);
+  margin: 0;
+}
+h3 {
+  font-family: var(--font-sans);
+  font-size: var(--type-title-lg-size);
+  font-weight: var(--type-title-lg-weight);
+  line-height: var(--type-title-lg-lh);
+  letter-spacing: var(--type-title-lg-ls);
+  color: var(--color-ink);
+  margin: 0;
+}
+h4 {
+  font-family: var(--font-sans);
+  font-size: var(--type-title-md-size);
+  font-weight: var(--type-title-md-weight);
+  line-height: var(--type-title-md-lh);
+  color: var(--color-ink);
+  margin: 0;
+}
+h5 {
+  font-family: var(--font-sans);
+  font-size: var(--type-title-sm-size);
+  font-weight: var(--type-title-sm-weight);
+  line-height: var(--type-title-sm-lh);
+  color: var(--color-ink);
+  margin: 0;
+}
+p {
+  font-size: var(--type-body-md-size);
+  line-height: var(--type-body-md-lh);
+  color: var(--color-body);
+  margin: 0;
+}
+a, .text-link {
+  color: var(--color-link);
+  text-decoration: none;
+}
+a:active { color: var(--color-link-active); }
+
+small, .caption {
+  font-size: var(--type-caption-size);
+  font-weight: var(--type-caption-weight);
+  line-height: var(--type-caption-lh);
+  letter-spacing: var(--type-caption-ls);
+  color: var(--color-muted);
+}
+
+/* Utility — display-xl reserved for articles-page second-tier headlines */
+.display-xl {
+  font-family: var(--font-display);
+  font-size: var(--type-display-xl-size);
+  font-weight: var(--type-display-xl-weight);
+  line-height: var(--type-display-xl-lh);
+  color: var(--color-ink);
+}
+
+/* Pricing sub-system utilities */
+.pricing-display {
+  font-family: var(--font-pricing);
+  font-size: var(--type-pricing-display-size);
+  font-weight: var(--type-pricing-display-weight);
+  line-height: var(--type-pricing-display-lh);
+  color: var(--color-pricing-ink);
+}
+.pricing-section {
+  font-family: var(--font-pricing);
+  font-size: var(--type-pricing-section-size);
+  font-weight: var(--type-pricing-section-weight);
+  line-height: var(--type-pricing-section-lh);
+  color: var(--color-pricing-ink);
+}
+.pricing-card-title {
+  font-family: var(--font-pricing);
+  font-size: var(--type-pricing-card-title-size);
+  font-weight: var(--type-pricing-card-title-weight);
+  line-height: var(--type-pricing-card-title-lh);
+  color: var(--color-pricing-ink);
+}
+
+/* Container */
+.at-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-left: var(--container-gutter);
+  padding-right: var(--container-gutter);
+}
+
+/* Section rhythm */
+.at-section {
+  padding-top: var(--space-section);
+  padding-bottom: var(--space-section);
+}

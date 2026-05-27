@@ -1,0 +1,177 @@
+/* Marketing UI Kit — page styles layered on top of design tokens */
+
+/* Top nav */
+.at-nav {
+  position: sticky; top: 0; z-index: 50;
+  height: 64px;
+  background: var(--color-canvas);
+  border-bottom: 1px solid var(--color-hairline);
+  display: flex; align-items: center;
+}
+.at-nav-inner {
+  width: 100%; max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-gutter);
+  display: flex; align-items: center; gap: 32px;
+}
+.at-nav-wordmark { height: 22px; display: block; }
+.at-nav-menu { display: flex; align-items: center; gap: 24px; flex: 1; }
+.at-nav-item {
+  font-size: 14px; font-weight: 400; color: var(--color-ink);
+  background: transparent; border: 0; cursor: pointer; padding: 8px 0;
+  display: inline-flex; align-items: center; gap: 4px;
+}
+.at-nav-cluster { display: flex; align-items: center; gap: 14px; }
+
+/* Buttons */
+.at-btn {
+  font-family: var(--font-sans);
+  font-size: 16px; font-weight: 500; line-height: 1.4;
+  padding: 16px 24px; border-radius: 12px; border: 0;
+  cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+  white-space: nowrap;
+  transition: background 120ms ease;
+}
+.at-btn-sm { padding: 10px 16px; font-size: 14px; border-radius: 8px; }
+.at-btn-primary {
+  background: var(--color-primary); color: var(--color-on-primary);
+  box-shadow: 0 1px 0 rgba(27,97,201,0.08), 0 2px 6px rgba(27,97,201,0.16);
+}
+.at-btn-primary:active { background: var(--color-primary-active); }
+.at-btn-secondary {
+  background: var(--color-canvas); color: var(--color-ink);
+  border: 1px solid var(--color-hairline);
+}
+.at-btn-text {
+  background: transparent; color: var(--color-ink);
+  padding: 8px 4px; border-radius: 6px;
+}
+.at-btn-icon {
+  width: 40px; height: 40px; padding: 0; border-radius: 9999px;
+  background: var(--color-canvas); color: var(--color-ink);
+  border: 1px solid var(--color-hairline);
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.at-btn-cluster { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+
+/* Hero */
+.at-hero { padding: 96px 0 64px; }
+.at-hero-inner { max-width: 880px; margin: 0 auto; text-align: center; padding: 0 var(--container-gutter); }
+.at-hero h1 { font-size: 56px; line-height: 1.05; letter-spacing: -1px; }
+.at-hero p.sub { font-size: 18px; line-height: 1.45; color: var(--color-body); margin: 24px auto 32px; max-width: 620px; }
+
+/* Logo strip */
+.at-logo-strip {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 24px; padding: 32px 0;
+  border-top: 1px solid var(--color-hairline);
+  border-bottom: 1px solid var(--color-hairline);
+}
+.at-logo { font-weight: 600; color: var(--color-muted); letter-spacing: -0.3px; font-size: 18px; }
+.at-logo.serif { font-family: Georgia, serif; font-style: italic; font-weight: 400; }
+.at-logo.condensed { letter-spacing: 0.6px; font-weight: 500; text-transform: uppercase; font-size: 14px; }
+
+/* Signature cards (full-bleed within container) */
+.at-signature {
+  border-radius: 12px;
+  padding: 64px 64px;
+  display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: center;
+}
+.at-signature-coral  { background: var(--color-signature-coral); color: var(--color-on-dark); }
+.at-signature-forest { background: var(--color-signature-forest); color: var(--color-on-dark); }
+.at-signature-dark   { background: var(--color-surface-dark); color: var(--color-on-dark); }
+.at-signature h2 { color: inherit; font-size: 44px; line-height: 1.05; letter-spacing: -0.5px; }
+.at-signature .eyebrow { font-size: 12px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; opacity: 0.75; margin-bottom: 18px; }
+.at-signature .body { font-size: 16px; line-height: 1.5; opacity: 0.9; margin: 18px 0 28px; max-width: 480px; }
+
+/* Demo grid */
+.at-demo-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
+.at-demo-card {
+  background: var(--color-canvas);
+  border-radius: 10px; padding: 24px; border: 1px solid var(--color-hairline);
+  display: flex; flex-direction: column; gap: 14px;
+}
+.at-demo-card.peach   { background: var(--color-signature-peach);   border-color: transparent; }
+.at-demo-card.mint    { background: var(--color-signature-mint);    border-color: transparent; }
+.at-demo-card.yellow  { background: var(--color-signature-yellow);  border-color: transparent; }
+.at-demo-card.mustard { background: var(--color-signature-mustard); border-color: transparent; }
+.at-demo-card .eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.4px; text-transform: uppercase; color: var(--color-muted); }
+.at-demo-card.peach .eyebrow,
+.at-demo-card.mint .eyebrow,
+.at-demo-card.yellow .eyebrow,
+.at-demo-card.mustard .eyebrow { color: rgba(24,29,38,0.7); }
+.at-demo-card h3 { font-size: 22px; line-height: 1.2; }
+.at-demo-card .frag {
+  background: var(--color-canvas);
+  border-radius: 8px;
+  padding: 14px;
+  border: 1px solid rgba(0,0,0,0.08);
+  font-size: 12px; color: var(--color-body);
+  margin-top: auto;
+}
+
+/* Cream callout */
+.at-cream {
+  background: var(--color-signature-cream);
+  border-radius: 12px;
+  padding: 64px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+}
+.at-cream h2 { font-size: 40px; line-height: 1.05; letter-spacing: -0.4px; }
+
+/* Tabbed feature card */
+.at-feature-tabbed {
+  background: var(--color-surface-soft);
+  border-radius: 12px; padding: 40px;
+  display: grid; grid-template-columns: 240px 1fr; gap: 48px;
+}
+.at-tabs { display: flex; flex-direction: column; gap: 4px; }
+.at-tab {
+  text-align: left; padding: 14px 16px; border-radius: 8px; border: 0;
+  background: transparent; cursor: pointer;
+  font-size: 18px; font-weight: 500; color: var(--color-muted);
+}
+.at-tab.active { background: var(--color-canvas); color: var(--color-ink); }
+.at-tab-content h3 { font-size: 28px; line-height: 1.15; margin-bottom: 12px; }
+.at-tab-content p  { font-size: 15px; line-height: 1.5; color: var(--color-body); margin-bottom: 20px; max-width: 480px; }
+.at-tab-content .screenshot {
+  margin-top: 24px; border-radius: 10px;
+  background: var(--color-canvas); border: 1px solid var(--color-hairline);
+  height: 200px;
+  display: grid; grid-template-rows: 32px 1fr; overflow: hidden;
+}
+.at-tab-content .screenshot .ss-bar { background: #fafbfc; border-bottom: 1px solid var(--color-hairline); display: flex; align-items: center; padding: 0 12px; gap: 6px; }
+.at-tab-content .screenshot .ss-bar i { width: 8px; height: 8px; border-radius: 50%; background: #d0d3d8; }
+
+/* CTA band light */
+.at-cta-band {
+  background: var(--color-surface-strong);
+  border-radius: 12px; padding: 48px;
+  display: flex; align-items: center; justify-content: space-between; gap: 32px;
+  flex-wrap: wrap;
+}
+.at-cta-band h2 { font-size: 32px; line-height: 1.1; max-width: 560px; }
+
+/* Footer */
+.at-footer { background: var(--color-canvas); border-top: 1px solid var(--color-hairline); padding: 64px 0 32px; }
+.at-footer-grid { display: grid; grid-template-columns: 1.4fr repeat(5, 1fr); gap: 32px; }
+.at-footer h5 { font-size: 13px; font-weight: 500; color: var(--color-ink); margin-bottom: 14px; letter-spacing: 0.2px; }
+.at-footer a { display: block; padding: 6px 0; font-size: 13px; color: var(--color-muted); }
+.at-footer .legal { display: flex; justify-content: space-between; padding-top: 32px; margin-top: 48px; border-top: 1px solid var(--color-hairline); font-size: 12px; color: var(--color-muted); }
+
+/* Section spacing helpers within marketing pages */
+.at-band { padding: 48px 0; }
+.at-band.tight { padding: 32px 0; }
+.at-band.airy  { padding: 96px 0; }
+
+/* Small UI fragment used inside cards */
+.at-rowlist { display: flex; flex-direction: column; gap: 6px; }
+.at-rowlist .r { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--color-body); padding: 6px 8px; border-radius: 4px; }
+.at-rowlist .r.alt { background: rgba(0,0,0,0.04); }
+.at-rowlist .dot { width: 8px; height: 8px; border-radius: 50%; }
+.at-rowlist .pill {
+  font-size: 10px; padding: 2px 8px; border-radius: 9999px;
+  background: rgba(0,0,0,0.06); color: var(--color-ink); font-weight: 500;
+}
+.at-rowlist .pill.go { background: rgba(0,100,0,0.12); color: #006400; }
+.at-rowlist .pill.wait { background: rgba(244,211,94,0.45); color: #6b4f00; }
